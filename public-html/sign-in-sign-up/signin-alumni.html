@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>#codevember Sign In / Sign Up</title>
+    <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900|RobotoDraft:400,100,300,500,700,900'>
+    <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+    <link rel="stylesheet" href="../profile-viewStyleSheet.css">
+       <link href="profile-viewStyleSheet.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+    <style>
+
+div.card1{
+  top: 40px;
+}
+
+    h1.title1{
+    top: 40px;
+    position: relative;
+    z-index: 1;
+    border-left: 5px solid #00838F;
+    margin: 0 0 35px;
+    padding: 10px 0 10px 50px;
+    color: #00838F;
+    font-size: 32px;
+    font-weight: 600;
+    text-transform: uppercase;
+    }
+
+
+    h1.title2{
+    top: 40px;
+    position: relative;
+    z-index: 1;
+    margin: 0 0 35px;
+    padding: 10px 0 10px 50px;
+    color: black;
+    font-size: 28px;
+    font-weight: 500;
+    text-transform: uppercase;
+    }
+
+
+    div.container{
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    background: url('../img/parallax1.png');
+    opacity: 0.9;
+    }
+
+
+    </style>
+
+<body>
+        <nav id="headerNav">
+        <div class="nav-wrapper"> <a href="/index.html" id="logo" class="brand-logo">&nbsp;&nbsp;&nbsp;&nbsp; E I D T S </a>
+
+            <a href="#" data-activates="slide-out" class="button-collapse" style="padding-left: 0.5em"><i class="mdi-navigation-menu"></i></a> </div>
+    </nav>
+
+
+<div class = "container">
+
+<div class = "row">
+
+    <div class="col s12 m6">
+        <!--------- About staff --------->
+            <h1 class="title1">About Alumni</h1>
+            <h1 class="title2">An alumni association is an association of graduates or, more broadly, of former students ..</h2>
+
+    </div>
+
+    <div class="col s12 m6">
+    <div class="containerr">
+        <div class="card1"></div>
+
+        <!--------- log-in --------->
+        <div class="card1">
+            <h1 class="title">Login</h1>
+
+            <form action="../group-index/staff-index.html" enctype="multipart/form-data">
+
+                <div class="input-container">
+                    <input type="email" autocomplete="on" id="Email" required="required" />
+                    <label for="email">Email</label>
+                    <div class="bar"></div>
+                </div>
+                <div class="input-container">
+                    <input type="password" id="Password" required="required" />
+                    <label for="Password">Password</label>
+                    <div class="bar"></div>
+                </div>
+                <div class="button-container">
+                    <button><span>Go</span></button>
+                </div>
+                <div class="footer"><a href="#">Forgot your password?</a></div>
+            </form>
+        </div>
+
+
+        <!-------- Register ------------>
+        <div class="card1 alt">
+            <div class="toggle"></div>
+            <h1 class="title">Register
+      <div class="close"></div>
+    </h1>
+            <form action="../profile-edit/staff-profile.html">
+                <div class="input-container">
+                    <input type="email" id="Emai" required="required" />
+                    <label for="Email">Email</label>
+                    <div class="bar"></div>
+                </div>
+                <div class="input-container">
+                    <input type="password" id="Password" required="required" />
+                    <label for="Password">Password</label>
+                    <div class="bar"></div>
+                </div>
+                <div class="input-container">
+                    <input type="password" id="Repeat Password" required="required" />
+                    <label for="Repeat Password">Repeat Password</label>
+                    <div class="bar"></div>
+                </div>
+                <div class="button-container">
+                    <button><span>Next</span></button>
+                </div>
+            </form>
+        </div>
+    </div>
+        </div>
+
+
+    </div>
+         </div>
+
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src="../js/profileScript.js"></script>
+</body>
+
+
+</html>

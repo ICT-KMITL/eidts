@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#2196F3">
+    <title>EDITS HOME</title>
+    <!-- CSS  -->
+    <link href="profile-viewStyleSheet.css" type="text/css" rel="stylesheet">
+    <link href="css/fullcalendar.min.css" type="text/css" rel="stylesheet" media="screen,projection">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+
+<style>
+div.scroll {
+
+
+    height: 300px;
+    overflow: scroll;
+}
+
+div.hidden {
+
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+}
+
+div.card-image {
+    height: 200px;
+  background-image: url(https://mdn.mozillademos.org/files/8971/firefox_logo.png);
+  background-size: contain;
+  border: 2px solid darkgray;
+  color: #000; text-shadow: 1px 1px 0 #fff;
+}
+
+
+div.container{
+    width: 80%;
+}
+
+div.card1{
+    width: 100%;
+    height: 350px;
+}
+#contact{
+     background: #0091EA;
+}
+
+div.parallax-container{
+    height: 650px;
+}
+
+</style>
+
+
+</head>
+
+<body id="top" class="scrollspy">
+    <!-- Pre Loader -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+    <!--Navigation-->
+    <nav id="headerNav">
+        <div class="nav-wrapper"> <a href="#" id="logo" class="brand-logo"><img src="/img/EIDTS_LOGO-1.png" height=80></a>
+            <ul id="nav-desktop" class="right hide-on-med-and-down">
+                <li id="FormTab" class="active FormTab"><a href="#work">Home</a></li>
+                <li id="Section1Tab" class="Section1Tab"><a href="#team">About Us</a></li>
+                <li id="Section1Tab" class="Section2Tab"><a href="#contact">Contact Us</a></li>
+                <li id="Section1Tab" class="Section3Tab"><a href="sign-in-sign-up/signin-staff.html">Log In</a></li>
+
+            </ul>
+            <ul id="slide-out" class="side-nav">
+                <li id="FormTab" class="active FormTab"><a href="#work">Loop</a></li>
+                <li id="Section1Tab" class="Section1Tab"><a href="#team">About Us</a></li>
+                <li id="Section1Tab" class="Section1Tab"><a href="#contact">Contact Us</a></li>
+            </ul> <a href="#" data-activates="slide-out" class="button-collapse" style="padding-left: 0.5em"><i class="mdi-navigation-menu"></i></a> </div>
+    </nav>
+
+    <!---------------- Slide ------------------>
+    <div class="slider" id="header-slide">
+        <ul class="slides">
+            <li>
+                <a href="#"> <img src="/img/EIDTS-header.png"></a>
+                <div class="caption right-align">
+                    <h3></h3>
+                    <h5 class="light grey-text text-lighten-3"></h5>
+                </div>
+            </li>
+            <li>
+                <a href="http://www.engineeringexpo.com/index.php"> <img src="http://www.engineeringexpo.com/images/slidershow/main_banner2.jpg"> </a>
+            </li>
+            <li>
+                <a href="http://www.engineeringexpo.com/index.php/highlight/399-smart-city-monitoring-control"> <img src="http://www.cityurbanes.com/wp-content/uploads/2015/05/madrid-skyline-and-people-with-smart-phones-preview2-o-1024x681.jpg"> </a>
+                <div class="caption center-align">
+                    <h3>Smart City Monitoring Control</h3>
+                    <h5 class="light grey-text text-lighten-3">เมืองอัจฉริยะ </h5>
+                </div>
+            </li>
+
+            <li>
+                <a href="http://www.engineeringexpo.com/index.php/news/392-internet-of-things"> <img src="http://www.alphagamma.eu/wp-content/uploads/2016/04/alphagamma-StartUp-ScaleUp-%E2%80%93-Europe%E2%80%99s-startup-IoT-Accelerator-entrepreneurship-opportunites-millenials-1021x580.jpg"></a>
+                <div class="caption center-align">
+                    <h3></h3>
+                    <h5 class="light grey-text text-lighten-3">เมื่อสิ่งของทุกอย่างพูดคุยกันเอง </h5>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+
+    <!------------- Works and News --------------->
+    <div class="section scrollspy" id="work">
+        <div class="container">
+            <h3 class="header text_b">Highlights </h3>
+            <div id="work-collections">
+                <div class="row">
+                    <div class="col s12 m4 l4">
+
+                            <div class="slider" id="new-slide">
+                                <ul class="slides">
+
+
+                                    <li>
+                                        <div class = "card medium">
+                                            <div class="card-image" id="news-img">
+                                                <a href="http://www.engineeringexpo.com/index.php/news/448-kmitl-innovative-awards"> <img src="/img/new1.jpg" > </a>
+                                                  <span class="card-title"> </span>
+                                                </div>
+                                            <div class="card-content">
+
+                                            <p>ประกาศผล 10 ทีมที่ผ่านเข้ารอบ สำหรับเวทีการประกวด ครั้งที่ 5 ประจำปี 2559 ซึ่งมีน้องๆ ส่งผลงานเข้าประกวดกันมากมาย...<br></p>
+
+
+                                            </div>
+                                    <!--
+                                        <div class="card-action">
+                                            <a href="http://www.engineeringexpo.com/index.php/news/448-kmitl-innovative-awards">This is a link</a>
+                                        </div>
+
+                                       -->
+                                        </div>
+
+                                    </li>
+                                    <li>
+                                        <div class = "card medium">
+                                            <div class="card-image">
+                                                <a href="http://www.engineeringexpo.com/index.php/highlight/418-egat"> <img src="/img/new2.jpg"></a>
+                                                  <span class="card-title"> </span>
+                                                </div>
+                                            <div class="card-content">
+                                            <p>ไม่ต้องรอศูนย์การเรียนรู้ กฟผ. ในอนาคต เพราะงานนี้ วิศวะ’59 จัดมาให้ชมกัน กับ Honda JAZZ รถยนต์ไฟฟ้าดัดแปลงต้นแบบ ที่นำมาใช้งานจริงแล้ว ...</p>
+                                            </div>
+
+                                        </div>
+                                    </li>
+                                    <li>
+                                       <div class = "card medium">
+                                            <div class="card-image">
+                                                <a href="http://www.engineeringexpo.com/index.php/highlight/357-tesla">  <img src="/img/new3.jpg"> </a>
+                                                  <span class="card-title"> </span>
+                                                </div>
+                                            <div class="card-content">
+                                            <p>ETON เปิดตำนานรถสปอร์ตเมืองไทยนำเข้า TESLA ROADSTER สปอร์ตพรีเมี่ยมพลังงานไฟฟ้า 100 % คันแรกของเมืองไทย "แรง เร้า ใจ แบบไร้มลพิษ" ...
+
+</p>
+                                            </div>
+                                        <div class="card-action">
+                                            <a href="http://www.engineeringexpo.com/index.php/highlight/357-tesla">This is a link</a>
+                                        </div>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                        </div>
+                    </div>
+
+
+
+                    <div class="col s12 m4 l4">
+                        <!-- Profile feed  -->
+
+                        <div class="row">
+                            <div class="col s12">
+                              <ul class="tabs">
+                                <li class="tab col s3"><a href="#researches">Researches</a></li>
+                                <li class="tab col s3"><a class="active" href="#events">Events</a></li>
+
+                              </ul>
+                            </div>
+                            <div id="researches" class="col s12">
+
+                                <div class="slider" id="research-slide">
+                                <ul class="slides">
+
+                                    <li>
+                                        <a class="hoverfx-img" href="https://drive.google.com/file/d/0B1WsIOU6mMvyQXU3N0RIY21nSVE/view?usp=sharing">
+                                              <div class="figure">
+                                                    Learn more about this project
+                                                </div>
+                                                <div class="overlay">
+                                                </div>
+                                                <img src="/img/smart-meter.png" height=300 >
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="hoverfx-img" href="https://drive.google.com/file/d/0B1WsIOU6mMvyQlFaZjBtNmZrQTQ/view?usp=sharing">
+                                              <div class="figure">
+                                                    Learn more about this project
+                                                </div>
+                                                <div class="overlay">
+                                                </div>
+                                                <img src="/img/telecom.png" height=300>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="hoverfx-img" href="https://drive.google.com/file/d/0B1WsIOU6mMvyMzNsMzVoMUozLVk/view?usp=sharing">
+                                              <div class="figure">
+                                                    Learn more about this project
+                                                </div>
+                                                <div class="overlay">
+                                                </div>
+                                                <img src="/img/gisnet.png" height=300>
+                                        </a>
+                                    </li>
+
+                                </ul>
+
+                        </div>
+                            </div>
+                            <div id="events" class="col s12">
+                                <div class="scroll" width=350px>
+
+                        <ul class="collection z-depth-1" width=350px >
+                            <li class="collection-item avatar"><i class="mdi-communication-comment circle pink"></i> <span class="title">พุธ 12 ต.ค. 2016</span>
+                                <a href="http://research.kmitl.ac.th/index.php/491-2560-3">
+                                <p>ประกาศรับข้อเสนอโครงการวิจัยและพัฒนา
+                                    <br> <span class="ultra-small">ภาครัฐร่วมเอกชนในเชิงพาณิชย์ ประจำปีงบประมาณ 2560 เครือข่ายวิจัยเครือข่ายอุดมศึกษาภาคกลางตอนบน</span> </p> </a>
+                            </li>
+                            <li class="collection-item avatar"><i class="mdi-editor-insert-invitation circle teal"></i> <span class="title">ศุกร์ 14 ต.ค. 2016</span>
+                                <a href="http://research.kmitl.ac.th/index.php/432-2672559">
+                                    <p>ประชาสัมพันธ์โครงอบรมทางวิชาการ เรื่อง การเขียนปริญญานิพนธ์ ภาษาอังกฤษ
+                                        <br> <span class="ultra-small">บรรยายและอบรมโดยวิทยากรผู้ทรงคุณวุฒิ</span>
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="collection-item avatar"><i class="mdi-social-group circle blue"></i> <span class="title">พุธ 26 ต.ค. 2016</span>
+                                <a href="http://www.kmitl.ac.th/news/view.php?cat=4&id=2203">
+                                <p>ขอเชิญร่วมพิธีไหว้ครู 1 กันยายน ณ หอประชุมเจ้าพระยาสุรวงษ์ไวยวัฒน์
+                                    <br> <span class="ultra-small">ขอเชิญนักศึกษาทุกท่านร่วมพิธีไหว้ครู ประจำปีการศึกษา 2559</span> </p> </a>
+                            </li>
+
+                        </ul>
+
+                        </div>
+                            </div>
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+                    <div class="col s12 m4 l4">
+                        <!-- Profile feed  -->
+                            <div id="anounceheader" colspan="7">Anoucement</div>
+                            <div class="scroll" width=300px>
+                                <div class = "card" height = 350px>
+                        <ul id="profile-page-about-feed" class="collection z-depth-1">
+                            <li class="collection-item avatar"><i class="mdi-communication-comment circle pink"></i> <span class="title">ด่วน !!! </span>
+                                <a href="http://research.kmitl.ac.th/index.php/491-2560-3">
+                                <p>ประกาศรับข้อเสนอโครงการวิจัยและพัฒนา
+                                    <br> <span class="ultra-small">ภาครัฐร่วมเอกชนในเชิงพาณิชย์ ประจำปีงบประมาณ 2560 เครือข่ายวิจัยเครือข่ายอุดมศึกษาภาคกลางตอนบน</span> </p> </a>
+                            </li>
+                            <li class="collection-item avatar"><i class="mdi-editor-insert-invitation circle teal"></i> <span class="title">ด่วน</span>
+                                <a href="http://research.kmitl.ac.th/index.php/432-2672559">
+                                    <p>ประชาสัมพันธ์โครงอบรมทางวิชาการ เรื่อง การเขียนปริญญานิพนธ์ ภาษาอังกฤษ
+                                        <br> <span class="ultra-small">บรรยายและอบรมโดยวิทยากรผู้ทรงคุณวุฒิ</span>
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="collection-item avatar"><i class="mdi-social-group circle blue"></i> <span class="title">ด่วน !!! </span>
+                                <a href="http://www.kmitl.ac.th/news/view.php?cat=4&id=2203">
+                                <p>ขอเชิญร่วมพิธีไหว้ครู 1 กันยายน ณ หอประชุมเจ้าพระยาสุรวงษ์ไวยวัฒน์
+                                    <br> <span class="ultra-small">ขอเชิญนักศึกษาทุกท่านร่วมพิธีไหว้ครู ประจำปีการศึกษา 2559</span> </p> </a>
+                            </li>
+                            <li class="collection-item avatar"><i class="mdi-editor-mode-edit circle purple"></i> <span class="title">ด่วน !!! </span>
+                                <a href="http://www.kmitl.ac.th/news/view.php?cat=3&id=2204">
+                                <p>เรียนฟรี ET Robot+Java รุ่น 2
+                                    <br> <span class="ultra-small">	กลับมาอีกครั้งกับโครงการอบรมฟรี
+                                    จากคณะเทคโนโลยีสารสนเทศ พระจอมเกล้าลาดกระบัง
+                                    ที่จัดขึ้นเป็นครั้งที่ 2</span> </p> </a>
+                            </li>
+                        </ul>
+                        </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!------------- Team ---------------->
+
+    <div class="section scrollspy" id="team">
+        <div class="container">
+            <h3 class="header text_b" id="memberSection"> Our Member </h3>
+            <div class="row">
+                <div class="col s12 m4">
+                    <div class="collection-item avatar">
+                        <center>
+                            <a class="waves-effect waves-block waves-light" href="/sign-in-sign-up/signin-staff.html"> <img class="circle" src="/img/prof.jpg" height=200 width=200> </a>
+                            <div class="card-content">
+                                <h4></h4> <a class="card-title activator grey-text text-darken-4" href="/sign-in-sign-up/signin-staff.html">Academic Staffs<br/>
+                            <small><em><a class="red-text text-darken-1" href="/sign-in-sign-up/signin-staff.html"></a></em>
+                                </small>
+                                </a>
+                                <!--
+                                <p>
+                                    <a class="blue-text text-lighten-2" href="https://www.facebook.com/"> <i class="fa fa-facebook-square"></i> </a>
+                                    <a class="blue-text text-lighten-2" href="https://twitter.com/"> <i class="fa fa-twitter-square"></i> </a>
+                                    <a class="blue-text text-lighten-2" href="https://plus.google.com/"> <i class="fa fa-google-plus-square"></i> </a>
+                                    <a class="blue-text text-lighten-2" href="https://www.linkedin.com/"> <i class="fa fa-linkedin-square"></i> </a>
+                                </p>
+-->
+                            </div>
+                        </center>
+                    </div>
+                </div>
+
+                <div class="col s12 m4">
+                    <div class="collection-item avatar">
+                        <center>
+                            <div class="waves-effect waves-block waves-light">
+                                <a class="waves-effect waves-block waves-light" href="sign-in-sign-up/signin-student.html"> <img class="activator circle" src="/img/student.jpg" height=200 width=200> </a>
+                            </div>
+                            <div class="card-content">
+                                <h4></h4> <a class="card-title activator grey-text text-darken-4" href="/sign-in-sign-up/signin-student.html">Students<br/>
+                            <small><em><a class="red-text text-darken-1" href="/sign-in-sign-up/signin-student.html"></a></em>
+                                </small>
+                                </a>
+
+                            </div>
+                        </center>
+                    </div>
+                </div>
+
+                <div class="col s12 m4">
+                    <div class="collection-item avatar">
+                        <center>
+                            <div class="waves-effect waves-block waves-light">
+                                <a class="waves-effect waves-block waves-light" href="sign-in-sign-up/signin-alumni.html"> <img class="activator circle" src="/img/alumnus.jpg" height=200 width=200> </a>
+                            </div>
+                            <div class="card-content">
+                                <h4></h4> <a class="card-title activator grey-text text-darken-4" href="sign-in-sign-up/signin-alumni.html">Alumni<br/>
+                            <small><em><a class="red-text text-darken-1" href="sign-in-sign-up/signin-alumni.html"></a></em>
+                                </small>
+                                </a>
+
+                            </div>
+                        </center>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 m4">
+                    <div class="collection-item avatar">
+                        <center>
+                            <div class="waves-effect waves-block waves-light">
+                                <a class="waves-effect waves-block waves-light" href="#"> <img class="activator circle" src="/img/startup.jpg" height=200 width=200> </a>
+                            </div>
+                            <div class="card-content">
+                                <h4></h4> <a class="card-title activator grey-text text-darken-4" href="sign-in-sign-up/signin.html">Startups<br/>
+                            <small><em><a class="red-text text-darken-1" href="sign-in-sign-up/signin.html"></a></em>
+                                </small>
+                                </a>
+
+                            </div>
+                        </center>
+                    </div>
+                </div>
+                <div class="col s12 m4">
+                    <div class="collection-item avatar">
+                        <center>
+                            <div class="waves-effect waves-block waves-light">
+                                <a class="waves-effect waves-block waves-light" href="#"> <img class="activator circle" src="/img/project.jpg" height=200 width=200> </a>
+                            </div>
+                            <div class="card-content">
+                                <h4></h4> <a class="card-title activator grey-text text-darken-4" href="sign-in-sign-up/signin.html">Labs<br/>
+                            <small><em><a class="red-text text-darken-1" href="#"></a></em>
+                                </small>
+                                </a>
+
+                            </div>
+                        </center>
+                    </div>
+                </div>
+                <div class="col s12 m4">
+                    <div class="collection-item avatar">
+                        <center>
+                            <div class="waves-effect waves-block waves-light">
+                                <a class="waves-effect waves-block waves-light" href="#"> <img class="activator circle" src="/img/industries.jpg" height=200 width=200> </a>
+                            </div>
+                            <div class="card-content">
+                                <h4></h4> <a class="card-title activator grey-text text-darken-4" href="sign-in-sign-up/signin.html">Industries<br/>
+                            <em><a class="red-text text-darken-1" href="#"></a></em>
+                                </a>
+
+                            </div>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  <div class="parallax-container" style = "height:200px;">
+    <div class="wrapper-vid">
+
+
+
+
+        <div class="row center" id="text-vid">
+            <br>
+            <br>
+            <br>
+         <h1 id="tittlevid">Loop keeps the world talking, for free.<br></h1>
+          <a href="#" id="download-button" class="btn-large waves-effect waves-light blue">Get Started</a>
+
+        </div>
+
+
+
+
+
+
+
+
+  </div>
+
+    <div class="parallax"><img src="img/fixed-background-2.jpg"></div>
+    </div>
+
+<!--
+  <div id="intro" class="section scrollspy">
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <h2 class="center header text_h2"> Free Messaging, Voice and Video Calls
+Whenever, Wherever.<span class="span_h2"></span></h2>
+                </div>
+
+
+                <div class="col s12 m4 l4">
+                    <div class="center promo promo-example"> <i class="mdi-notification-voice-chat blue-text"></i>
+                        <h5 class="promo-caption">Video Phone and Video Conference</h5>
+                        <p class="light center">Invite your friends, colleagues or anyone to a call. And it is now easier than you think.</p>
+                    </div>
+                </div>
+                <div class="col s12 m4 l4">
+                    <div class="center promo promo-example"> <i class="mdi-social-group blue-text"></i>
+                        <h5 class="promo-caption">Whiteboard Meeting</h5>
+                        <p class="light center">Meet and collaborate online with people.A Whiteboard is a blank page that you can use to work together with other meeting participants by being able to type notes, draw, or import images.</p>
+                    </div>
+                </div>
+                <div class="col s12 m4 l4">
+                    <div class="center promo promo-example "> <i class="mdi-communication-location-on blue-text"></i>
+                        <h5 class="promo-caption">Location Sharing</h5>
+                        <p class="light center">You can share your real-time location across with people you are calling and others friends you choose. Also you can change who can see your location or turn off Location Sharing at any time.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    -->
+<div class="parallax-container">
+    <div class="section ">
+      <div class="container">
+
+
+             <div class="row">
+            <div class="col s12 m6 l6">
+            <div class="device wp3">
+                <div class="device-content">
+                    <div class="showcase-slider">
+                        <ul class="slides" id="showcaseSlider">
+                            <li> <img src="img/screen1.jpg" alt="Device Content Image"> </li>
+                            <li> <img src="img/screen2.jpg" alt="Device Content Image"> </li>
+                            <li> <img src="img/screen3.jpg" alt="Device Content Image"> </li>
+                        </ul>
+                    </div>
+                </div>
+                </div>
+                <br>
+                  </div>
+           <div class="col 6 offset-s6" id="loopsection">
+
+
+                            <br>
+                            <br>
+                            <br>
+
+                        <h4>Video Phone and Video Conference</h4>
+                            <h6>Invite your friends, colleagues or anyone to a call. And it is now easier than you think.</h6>
+               <br>
+                <br>
+
+                            <br>
+                            <br>
+                   <br>
+                        <h4>Whiteboard Meeting</h4>
+                            <h6>Meet and collaborate online with people.A Whiteboard is a blank page that you can use to work together.</h6>
+               <br>
+            <br>
+
+                            <br>
+                            <br>
+                        <h4>Screen Sharing</h4>
+                            <h6>You can share your real-time screen across with people you are calling and others friends you choose. </h6>
+               <br>
+                            <br>
+                        <h4>Live Chat</h4>
+                            <h6>You can chat in real-time across with people you are calling and others friends you choose. </h6>
+                <br>
+                            <br>
+                        <h4>Live Meeting</h4>
+                            <h6>Meet and collaborate online with people real-time across with people you are calling and others friends you choose. </h6>
+
+
+
+
+                  <a href="#" id="download-button" class="btn-large waves-effect waves-light blue">Get Started</a>
+
+
+
+            </div>
+                 </div>
+
+
+
+    </div>
+
+  </div>
+    <div class="parallax"><img src="img/texture-bw.png"></div>
+</div>
+
+<!--
+  <div class="parallax-container">
+    <div class="section ">
+      <div class="container">
+
+
+
+            <div class="col s12 m6 l6">
+            <div class="device wp3">
+                <div class="device-content">
+                    <div class="showcase-slider">
+                        <ul class="slides" id="showcaseSlider">
+                            <li> <img src="img/screen1.jpg" alt="Device Content Image"> </li>
+                            <li> <img src="img/screen2.jpg" alt="Device Content Image"> </li>
+                            <li> <img src="img/screen3.jpg" alt="Device Content Image"> </li>
+                        </ul>
+                    </div>
+                </div>
+                </div>
+                <br>
+                  </div>
+
+
+
+
+
+    </div>
+    <div class="parallax"><img src="img/parallax1.png" alt="Unsplashed background img 2"></div>
+  </div>
+    </div>
+
+
+-->
+
+    <!--Footer-->
+    <footer class="page-footer blue" id="contact">
+    <div class="container">
+      <div class="row">
+        <div class="col l5 s12">
+            <img src="/img/EIDTS_LOGO-1.png" height=110>
+            <p>
+          <h5 class="white-text">About us</h5>
+
+          <p class="grey-text text-lighten-4 light">Engineering and technology educational and research, together with strong virtue and morality, are the foundations of social and national developments.</p>
+
+
+        </div>
+        <div class="col l4 s12">
+          <h5 class="white-text">Contact Us</h5>
+          <ul>
+            <li><div class="container white-text light" >King Mongkut's Institute of Technology Ladkrabang
+
+No.1, Soi Chalong Krung 1, Chalong Krung Road, Ladkrabang Sub-district, Ladkrabang district, Bangkok 10520 <p>Tel : (+66)2329-8000 Extension 3484</p><p>Email : inter.eng.office@live.kmitl.ac.th</p>
+</div></li>
+
+          </ul>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Engineering KMITL</h5>
+                    <ul>
+
+                        <li>
+                            <a class="white-text" href="https://www.facebook.com/kmitl001"> <i class="small fa fa-facebook-square white-text"></i> Facebook </a>
+                        </li>
+                        <li>
+                            <a class="white-text" href="https://www.youtube.com/channel/UCujzXFxneYcVLgKhTfyPm2A"> <i class="small fa fa-youtube-square white-text"></i> Youtube </a>
+                        </li>
+                        <li>
+                            <a class="white-text" href="http://engineer.kmitl.ac.th/engineer2015/#"> <i class="small mdi-hardware-desktop-mac white-text"></i> Our Website </a>
+                        </li>
+                    </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Made by <a class="brown-text text-lighten-3" href="#">E I D T S  </a>&copy; Copyright 2016 EIDTS KMITL
+      </div>
+    </div>
+  </footer>
+
+
+
+    <!--  Scripts-->
+    <script src="min/plugin-min.js"></script>
+    <script src="min/custom-min.js"></script>
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <!-- owl carousel -->
+    <script src="js/flickity.pkgd.min.js"></script>
+    <script src="js/profileScript.js"></script>
+    <!-- Calendar Script -->
+    <script type="text/javascript" src="js/jquery-ui.custom.min.js"></script>
+    <script type="text/javascript" src="js/moment.min.js"></script>
+    <script type="text/javascript" src="js/fullcalendar.min.js"></script>
+    <script type="text/javascript" src="js/fullcalendar-script.js"></script>
+
+    <script>
+        $('#featuresSlider').flickity({
+            cellAlign: 'left'
+            , contain: true
+            , prevNextButtons: false
+        });
+        $('#showcaseSlider').flickity({
+            cellAlign: 'left'
+            , contain: true
+            , prevNextButtons: false
+            , imagesLoaded: true
+        });
+    </script>
+<!--asd-->
+</body>
+
+</html>

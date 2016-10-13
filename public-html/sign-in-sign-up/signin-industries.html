@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>#codevember Sign In / Sign Up</title>
+    <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900|RobotoDraft:400,100,300,500,700,900'>
+    <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+    <link rel="stylesheet" href="../profile-viewStyleSheet.css"> </head>
+
+<body>
+    <div class="containerr">
+        <div class="card1"></div>
+        <!--------- log-in --------->
+        <div class="card1">
+            <h1 class="title">Login</h1>
+            <form action="../alumni_page/alumni_index.html" enctype="multipart/form-data">
+                <div class="input-container">
+                    <input type="email" autocomplete="on" id="Email" required="required" >
+                    <label for="email">Email</label>
+                    <div class="bar"></div>
+                </div>
+                <div class="input-container">
+                    <input type="password" id="Password" required="required" >
+                    <label for="Password">Password</label>
+                    <div class="bar"></div>
+                </div>
+                <div class="button-container">
+                    <button><span>Go</span></button>
+                </div>
+                <div class="footer"><a href="#">Forgot your password?</a></div>
+            </form>
+        </div>
+        <!-------- Register ---------->
+        <div class="card1 alt">
+            <div class="toggle"></div>
+            <h1 class="title">Register
+      <div class="close"></div>
+    </h1>
+            <form action="../staff-profile.html">
+                <div class="input-container">
+                    <input type="email" id="Emai" required="required" />
+                    <label for="Email">Email</label>
+                    <div class="bar"></div>
+                </div>
+                <div class="input-container">
+                    <input type="password" id="Password" required="required" />
+                    <label for="Password">Password</label>
+                    <div class="bar"></div>
+                </div>
+                <div class="input-container">
+                    <input type="password" id="Repeat Password" required="required" />
+                    <label for="Repeat Password">Repeat Password</label>
+                    <div class="bar"></div>
+                </div>
+                <div class="button-container">
+                    <button><span>Next</span></button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src="../js/profileScript.js"></script>
+</body>
+<!--test---->
+<!-- test1 -->
+
+</html>
