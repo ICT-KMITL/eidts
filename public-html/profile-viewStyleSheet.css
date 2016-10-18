@@ -585,9 +585,9 @@ td {
 }
 
 .device {
-    position: absolute;
+    position: relative;
     top: -600px;
-    left: 20%;
+    left: 10%;
     min-height: 676px;
     width: 359px;
     background: url('img/iphone-skeleton.png') no-repeat center center;
@@ -595,7 +595,7 @@ td {
 }
 
 .device-content {
-    position: absolute;
+    position: relative;
     top: 115px;
     left: 56px;
     width: 247px;
@@ -4111,6 +4111,7 @@ body {
 @-webkit-keyframes buttonFadeInUp {
     0% {
         bottom: 30px;
+        bottom: 30px;
         opacity: 0;
     }
 }
@@ -4121,6 +4122,7 @@ body {
         opacity: 0;
     }
 }
+
 
 
 /*----------------------- END -----------------------------*/
