@@ -1,0 +1,253 @@
+<% layout('layout') -%>
+
+<% block('topbar',
+'\
+<nav id="headerNav" class="pinned" style="top: 0px;">\
+        <div class="nav-wrapper"> \
+            <a href="/" id="logo" class="brand-logo"><img src="EIDTS_LOGO-1.png" height="80"></a>\
+            <ul id="nav-desktop" class="right hide-on-med-and-down">\
+                <li id="FormTab" class="active FormTab"><a href="/">Home</a></li>\
+                <li id="Section1Tab" class="Section1Tab"><a href="/login">Log In</a></li>\
+            </ul>\
+            <ul id="slide-out" class="side-nav" style="left: -310px; width: 300px;">\
+                <li id="FormTab" class="active FormTab"><a href="/">Home</a></li>\
+                <li id="Section1Tab" class="Section1Tab"><a href="/login">Log In</a></li>\
+            </ul> <a href="#" data-activates="slide-out" class="button-collapse" style="padding-left: 0.5em"><i class="mdi-navigation-menu"></i></a> \
+        </div>\
+</nav>\
+'
+) -%>
+
+
+    <style>
+
+    div.card1{
+  top: 40px;
+}
+
+    h1.title1{
+    top: 40px;
+    position: relative;
+    z-index: 1;
+    border-left: 5px solid #00838F;
+/*    margin: 0 0 35px;
+    padding: 10px 0 10px 50px;*/
+    color: #00838F;
+    font-size: 28px;
+    font-weight: 600;
+    text-transform: uppercase;
+    }
+
+
+    h1.title2{
+    top: 40px;
+    position: relative;
+    z-index: 1;
+    margin: 0 0 35px;
+    padding: 10px 0 10px 50px;
+    color: black;
+    font-size: 20px;
+    font-weight: 500;
+    text-transform: uppercase;
+    }
+
+    div.container{
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    /*background: url('welcome/img/parallax1.png');*/
+    opacity: 0.9;
+    }
+
+    </style>
+    <br><br><br><br>
+<div class = "container">
+
+    <div class = "row">
+        <div class="col s12 m6" id="usertypedesc"> 
+
+            <div class="section scrollspy" id="team">
+        <div class="container">
+        <h4 class="header text_b" id="memberSection"> Select your type </h4>
+            <div class="row">
+                <div class="col s12 m4">
+                    <div class="collection-item avatar">
+                        <center>
+                            <a class="waves-effect waves-block waves-light" href="/login?type=staff"> <img class="circle" src="welcome/prof.jpg" height=100 width=100> </a>
+                            <div class="card-content">
+                                <h4></h4> <a class="card-title activator grey-text text-darken-4" href="/login?type=staff">Academic Staffs<br/>
+                            <small><em><a class="red-text text-darken-1" href="/login?type=staff"></a></em>
+                                </small>
+                                </a>
+                            </div>
+                        </center>
+                    </div>
+                </div>
+
+                <div class="col s12 m4">
+                    <div class="collection-item avatar">
+                        <center>
+                            <div class="waves-effect waves-block waves-light">
+                                <a class="waves-effect waves-block waves-light" href="/login?type=student"> <img class="activator circle" src="welcome/student.jpg" height=100 width=100> </a>
+                            </div>
+                            <div class="card-content">
+                                <h4></h4> <a class="card-title activator grey-text text-darken-4" href="/login?type=student">Students<br/>
+                            <small><em><a class="red-text text-darken-1" href="/login?type=student"></a></em>
+                                </small>
+                                </a>
+                            </div>
+                        </center>
+                    </div>
+                </div>
+
+                <div class="col s12 m4">
+                    <div class="collection-item avatar">
+                        <center>
+                            <div class="waves-effect waves-block waves-light">
+                                <a class="waves-effect waves-block waves-light" href="/login?type=alumni"> <img class="activator circle" src="welcome/alumnus.jpg" height=100 width=100> </a>
+                            </div>
+                            <div class="card-content">
+                                <h4></h4> <a class="card-title activator grey-text text-darken-4" href="/login?type=alumni">Alumni<br/>
+                            <small><em><a class="red-text text-darken-1" href="/login?type=alumni"></a></em>
+                                </small>
+                                </a>
+                            </div>
+                        </center>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 m4">
+                    <div class="collection-item avatar">
+                        <center>
+                            <div class="waves-effect waves-block waves-light">
+                                <a class="waves-effect waves-block waves-light" href="/login?type=startup"> <img class="activator circle" src="welcome/startup.jpg" height=100 width=100> </a>
+                            </div>
+                            <div class="card-content">
+                                <h4></h4> <a class="card-title activator grey-text text-darken-4" href="/login?type=startup">Startups<br/>
+                            <small><em><a class="red-text text-darken-1" href="/login?type=startup"></a></em>
+                                </small>
+                                </a>
+                            </div>
+                        </center>
+                    </div>
+                </div>
+                <div class="col s12 m4">
+                    <div class="collection-item avatar">
+                        <center>
+                            <div class="waves-effect waves-block waves-light">
+                                <a class="waves-effect waves-block waves-light" href="/login?type=lab"> <img class="activator circle" src="welcome/project.jpg" height=100 width=100> </a>
+                            </div>
+                            <div class="card-content">
+                                <h4></h4> <a class="card-title activator grey-text text-darken-4" href="/login?type=lab">Labs<br/>
+                            <small><em><a class="red-text text-darken-1" href="/login?type=lab"></a></em>
+                                </small>
+                                </a>
+                            </div>
+                        </center>
+                    </div>
+                </div>
+                <div class="col s12 m4">
+                    <div class="collection-item avatar">
+                        <center>
+                            <div class="waves-effect waves-block waves-light">
+                                <a class="waves-effect waves-block waves-light" href="/login?type=industry"> <img class="activator circle" src="welcome/industries.jpg" height=100 width=100> </a>
+                            </div>
+                            <div class="card-content">
+                                <h4></h4> <a class="card-title activator grey-text text-darken-4" href="/login?type=industry">Industries<br/>
+                            <em><a class="red-text text-darken-1" href="/login?type=industry"></a></em>
+                                </a>
+                            </div>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>           
+
+
+
+    </div>
+
+
+
+        <div class=" col s12 m6">
+            <div class="containerr">
+                <div class="card1"></div>
+
+                <div class="card1">
+                    <h1 class="title">Login</h1>
+                    <% if (error2) { %> <div class="error"><%= error2 %></div><% } %>
+                    <form action="/login" method="POST" enctype="multipart/form-data">
+
+                        <div class="input-container">
+                            <input type="email" name="username" autocomplete = "on" id="Email" required="required" />
+                            <label for="email">Email</label>
+                            <div class="bar"></div>
+                        </div>
+                        <div class="input-container">
+                            <input type="password" name="password" id="Password" required="required" />
+                            <label for="Password">Password</label>
+                            <div class="bar"></div>
+                        </div>
+                        <div class="button-container">
+                            <button type="submit" value="Login"><span>Go</span></button>
+                        </div>
+                        <div class="footer"><a href="#">Forgot your password?</a></div>
+                    </form>
+                </div>
+                <div class="card1 alt">
+                    <div class="toggle"></div>
+
+                    <h1 class="title">Register<div class="close"></div></h1>
+                    <% if (error1) { %> <div class="error"><%= error1 %></div><% } %>
+
+                    <form method="post" action="/signup">
+                        <div class="input-container">
+                            <input type="email" id="Emai" name="username" required="required" />
+                            <label for="Email">Email</label>
+                            <div class="bar"></div>
+                        </div>
+                        <div class="input-container">
+                            <input type="password" name="password" id="Password" required="required" />
+                            <label for="Password">Password</label>
+                            <div class="bar"></div>
+                        </div>
+                        <div class="input-container">
+                            <input type="password" name="confirm" id="Repeat Password" required="required" />
+                            <label for="Repeat Password">Repeat Password</label>
+                            <div class="bar"></div>
+                        </div>
+                        <input type="text" id="utype" name="usertype" style="display:none;" />
+                        <div class="button-container">
+                            <button type="sumbit"><span>Next</span></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+            results = regex.exec(location.search);
+            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+    var usertype = getParameterByName('type');
+    // alert(usertype);
+    datastudent='<h1 class="title1">Student</h1>'
+
+    $("#usertypedesc").prepend('<h1 class="title1">'+usertype+'</h1>')
+    $("#utype").attr("value",usertype);
+
+    if (usertype == "student") {
+        
+    }
+    
+
+</script>

@@ -1,0 +1,474 @@
+<% layout('layout') -%>
+
+
+
+<% block('topbar',
+'\
+<nav id="headerNav" class="pinned" style="top: 0px;">\
+        <div class="nav-wrapper"> \
+        	<a href="/" id="logo" class="brand-logo"><img src="EIDTS_LOGO-1.png" height="80"></a>\
+            <ul id="nav-desktop" class="right hide-on-med-and-down">\
+                <li id="FormTab" class="active FormTab"><a href="/users/'+user.username+'">\
+					<span id="username"><img class="small_avartar circle " src="'+user.image+'"/>'+user.username+'</span></a>\
+				</li>\
+				<li><a href="/">News<span class="new badge">1</span></a></li>\
+				<li><a href="/logout">logout</a></li>\
+            </ul>\
+            <ul id="slide-out" class="side-nav" style="left: -310px; width: 300px;">\
+                <li id="FormTab" class="active FormTab"><a href="/users/'+user.username+'">\
+					<span id="username"><img class="small_avartar circle " src="'+user.image+'"/>'+user.username+'</span></a>\
+				</li>\
+				<li><a href="/">News<span class="new badge">1</span></a></li>\
+				<li><a href="/logout">logout</a></li>\
+            </ul> <a href="#" data-activates="slide-out" class="button-collapse" style="padding-left: 0.5em"><i class="mdi-navigation-menu"></i></a> \
+        </div>\
+</nav>\
+'
+) -%>
+<br>
+<br>
+<br>
+<%
+if (user.username == user.username) { 
+	var isMe = true;
+} else {
+	var isMe = false;
+}
+%>
+
+
+
+
+
+
+
+<div id="work-collections">
+                        <div class="col s12 m12 l12">
+                                <div id="profile-page-header" class="card" style="overflow: hidden;">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="http://demo.geekslabs.com/materialize/v3.1/images/user-profile-bg.jpg" alt="user background">
+                </div>
+                <figure class="card-profile-image">
+                    <img src="<%= user.image %>" alt="profile image" class="circle z-depth-2 responsive-img activator">
+                </figure>
+                <div class="card-content">
+
+                  <div class="row">
+
+                    <div class="col s2 offset-s2">
+                        <br>
+
+                        <h4 class="card-title grey-text text-darken-4"><%= user.title %>&nbsp;<%= user.firstname %>&nbsp;<%= user.lastname %></h4>
+                        <p class="medium-small grey-text"><%= user.jobpos %></p>
+                    </div>
+                    <!-- <div class="col s2 center-align">
+                        <br>
+                        <h4 class="card-title grey-text text-darken-4"><%= user.telno %></h4>
+                        <p class="medium-small grey-text">Tel</p>
+                    </div>
+                    <div class="col s2 center-align">
+                        <br>
+                        <h4 class="card-title grey-text text-darken-4"><%= user.email %></h4>
+                        <p class="medium-small grey-text">Email</p>
+                    </div>
+                    <div class="col s2 center-align">
+                        <br>
+                        <h4 class="card-title grey-text text-darken-4"><%= user.dob %></h4>
+                        <p class="medium-small grey-text">Birth day</p>
+                    </div> -->
+                    <div class="col s2 right">
+
+                      <a class="btn-floating activator waves-effect waves-light darken-2">
+                          <i class="mdi-action-perm-identity"></i>
+                      </a>
+
+                        <a href="/editusers/<%= user.username %>" class="btn-floating waves-effect waves-light darken-2">
+                          <i class="mdi-content-create"></i>
+                        </a>
+
+                    </div>
+
+                  </div>
+                </div>
+                <div class="card-reveal" style="display: none; transform: translateY(0px);">
+                    <p>
+                      <span class="card-title grey-text text-darken-4"><%= user.firstname %>&nbsp;<%= user.lastname %> <i class="mdi-navigation-close right"></i></span>
+                      <span><i class="mdi-action-perm-identity cyan-text text-darken-2"></i> <%= user.jobpos %></span>
+                    </p>
+
+                    <p><%= user.bio %></p>
+
+                    <p><i class="mdi-action-perm-phone-msg cyan-text text-darken-2"></i><%= user.telno %></p>
+                    <p><i class="mdi-communication-email cyan-text text-darken-2"></i><%= user.email %></p>
+                    <p><i class="mdi-social-cake cyan-text text-darken-2"></i><%= user.dob %></p>
+                    <p><i class="mdi-device-airplanemode-on cyan-text text-darken-2"></i><%= user.lab %>&nbsp;<%= user.department %></p>
+                </div>
+                </div>
+            </div>
+            <div id="profile-page-content" class="row">
+              <!-- profile-page-sidebar-->
+              <div id="profile-page-sidebar" class="col s12 m4">
+                <!-- Profile About  -->
+                <div class="card light-blue">
+                  <div class="card-content white-text">
+                    <span class="card-title">About Me!</span>
+                    <p><%= user.bio %></p>
+                  </div>
+                </div>
+                <!-- Profile About  -->
+
+                <div class="collection">
+				<a href="#!" class="collection-item active">Directory</a>
+	 			<% for(var i=0; i<directory.length; i++) { %>
+	 				<a href="#!" class="collection-item"><%= directory[i].firstname %></a>
+                <% } %>
+                </div>
+
+                <!-- Profile About Details  -->
+                <ul id="profile-page-about-details" class="collection z-depth-1">
+                  <li class="collection-item">
+                    <div class="row">
+                      <div class="col s5 grey-text darken-1"><i class="mdi-action-wallet-travel"></i> Project</div>
+                      <div class="col s7 grey-text text-darken-4 right-align">ABC Name</div>
+                    </div>
+                  </li>
+                  <li class="collection-item">
+                    <div class="row">
+                      <div class="col s5 grey-text darken-1"><i class="mdi-social-poll"></i> Skills</div>
+                      <div class="col s7 grey-text text-darken-4 right-align">HTML, CSS</div>
+                    </div>
+                  </li>
+                  <li class="collection-item">
+                    <div class="row">
+                      <div class="col s5 grey-text darken-1"><i class="mdi-social-domain"></i> Lives in</div>
+                      <div class="col s7 grey-text text-darken-4 right-align">NY, USA</div>
+                    </div>
+                  </li>
+                  <li class="collection-item">
+                    <div class="row">
+                      <div class="col s5 grey-text darken-1"><i class="mdi-social-cake"></i> Birth date</div>
+                      <div class="col s7 grey-text text-darken-4 right-align">18th June, 1991</div>
+                    </div>
+                  </li>
+                </ul>
+                <!--/ Profile About Details  -->
+
+                <!-- Profile About  -->
+                <div class="card amber darken-2">
+                  <div class="card-content white-text center-align">
+                    <p class="card-title"><i class="mdi-social-group-add"></i> 3685</p>
+                    <p>Followers</p>
+                  </div>
+                </div>
+                <!-- Profile About  -->
+
+                <!-- Profile feed  -->
+                <ul id="profile-page-about-feed" class="collection z-depth-1">
+                  <li class="collection-item avatar">
+                    <img src="<%= user.image %>" alt="" class="circle">
+                    <span class="title">Project Title</span>
+                    <p>Task assigned to new changes.
+                      <br> <span class="ultra-small">Second Line</span>
+                    </p>
+                    <a href="#!" class="secondary-content"><i class="mdi-action-grade"></i></a>
+                  </li>
+                  <li class="collection-item avatar">
+                    <i class="mdi-file-folder circle"></i>
+                    <span class="title">New Project</span>
+                    <p>First Line of Project Work
+                      <br> <span class="ultra-small">Second Line</span>
+                    </p>
+                    <a href="#!" class="secondary-content"><i class="mdi-social-domain"></i></a>
+                  </li>
+                  <li class="collection-item avatar">
+                    <i class="mdi-action-assessment circle green"></i>
+                    <span class="title">New Payment</span>
+                    <p>Last UK Project Payment
+                      <br> <span class="ultra-small">$ 3,684.00</span>
+                    </p>
+                    <a href="#!" class="secondary-content"><i class="mdi-editor-attach-money"></i></a>
+                  </li>
+                  <li class="collection-item avatar">
+                    <i class="mdi-av-play-arrow circle red"></i>
+                    <span class="title">Latest News</span>
+                    <p>company management news
+                      <br> <span class="ultra-small">Second Line</span>
+                    </p>
+                    <a href="#!" class="secondary-content"><i class="mdi-action-track-changes"></i></a>
+                  </li>
+                </ul>
+                <!-- Profile feed  -->
+
+                <!-- task-card -->
+                <!-- <ul id="task-card" class="collection with-header">
+                  <li class="collection-header cyan">
+                      <h4 class="task-card-title">My Task</h4>
+                      <p class="task-card-date">March 26, 2015</p>
+                  </li>
+                  <li class="collection-item dismissable" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                      <input type="checkbox" id="task1">
+                      <label for="task1" style="text-decoration: none;">Create Mobile App UI. <a href="#" class="secondary-content"><span class="ultra-small">Today</span></a>
+                      </label>
+                      <span class="task-cat teal">Mobile App</span>
+                  </li>
+                  <li class="collection-item dismissable" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                      <input type="checkbox" id="task2">
+                      <label for="task2" style="text-decoration: none;">Check the new API standerds. <a href="#" class="secondary-content"><span class="ultra-small">Monday</span></a>
+                      </label>
+                      <span class="task-cat purple">Web API</span>
+                  </li>
+                  <li class="collection-item dismissable" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                      <input type="checkbox" id="task3" checked="checked">
+                      <label for="task3" style="text-decoration: line-through;">Check the new Mockup of ABC. <a href="#" class="secondary-content"><span class="ultra-small">Wednesday</span></a>
+                      </label>
+                      <span class="task-cat pink">Mockup</span>
+                  </li>
+                  <li class="collection-item dismissable" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                      <input type="checkbox" id="task4" checked="checked" disabled="disabled">
+                      <label for="task4" style="text-decoration: line-through;">I did it !</label>
+                      <span class="task-cat cyan">Mobile App</span>
+                  </li>
+                </ul> -->
+                <!-- task-card -->
+
+
+
+
+
+              </div>
+              <!-- profile-page-sidebar-->
+
+              <!-- profile-page-wall -->
+              <div id="profile-page-wall" class="col s12 m8">
+                <!-- profile-page-wall-share -->
+                <div id="profile-page-wall-share" class="row">
+                  <div class="col s12">
+                    <ul class="tabs tab-profile z-depth-1 light-blue" style="width: 100%;">
+                      <li class="tab col s3"><a class="white-text waves-effect waves-light active" href="#UpdateStatus"><i class="mdi-editor-border-color"></i> Update Status</a>
+                      </li>
+                      <li class="tab col s3"><a class="white-text waves-effect waves-light" href="#AddPhotos"><i class="mdi-image-camera-alt"></i> Add Photos</a>
+                      </li>
+                      <li class="tab col s3"><a class="white-text waves-effect waves-light" href="#CreateAlbum"><i class="mdi-image-photo-album"></i> Create Album</a>
+                      </li>
+                    <div class="indicator" style="right: 490px; left: 0px;"></div><div class="indicator" style="right: 490px; left: 0px;"></div></ul>
+                    <!-- UpdateStatus-->
+                    <div id="UpdateStatus" class="tab-content col s12  grey lighten-4" style="display: block;">
+                      <div class="row">
+                        <div class="col s2">
+                            <br>
+                          <img src="<%= user.image %>" alt="" class="circle responsive-img valign profile-image-post" width="70" height="70">
+                        </div>
+
+                        <form action="/statuses" id="postNewStatus" method="POST">
+
+                        	<div class="input-field col s10">
+
+	                        <% if (isMe) { %>
+	                        <% }%>      
+						    
+	                          <textarea id="textarea" row="2" class="materialize-textarea" name="status" ></textarea>
+	                          <label for="textarea" class="">What's on your mind?</label>
+
+	                          <div class="row">
+		                        <div class="col s12 m4 share-icons">
+		                          <a href="#"><i class="mdi-image-camera-alt"></i></a>
+		                          <a href="#"><i class="mdi-action-account-circle"></i></a>
+		                          <a href="#"><i class="mdi-hardware-keyboard-alt"></i></a>
+		                          <a href="#"><i class="mdi-communication-location-on"></i></a>
+		                        </div>
+
+		                          <div class="col s12 m8 right-align">
+
+		                          <a class="dropdown-button btn" href="#" data-activates="profliePost"><i class="mdi-action-language"></i> Public</a>
+		                          <ul id="profliePost" class="dropdown-content" style="width: 138px; position: absolute; top: 660.594px; left: 1134.52px; opacity: 1; display: none;">
+	                              <li><a href="#!"><i class="mdi-action-language"></i> Public</a></li>
+	                              <li><a href="#!"><i class="mdi-action-face-unlock"></i> Friends</a></li>
+	                              <li><a href="#!"><i class="mdi-action-lock-outline"></i> Only Me</a></li>
+		                            </ul>
+		                          <a class="waves-effect waves-light btn" id="newstatus" ><i class="mdi-maps-rate-review left" ></i>Post</a>
+		                          </div>
+
+		                          </div>
+			                    </div>
+		                </form>
+
+                        	</div>
+						
+                      </div>
+                      
+                      
+
+                    <!-- AddPhotos -->
+                    <div id="AddPhotos" class="tab-content col s12  grey lighten-4" style="display: none;">
+                      <div class="row">
+                        <div class="col s2">
+                         <br>
+                          <img src="<%= user.image %>" alt="" class="circle responsive-img valign profile-image-post" width="70" height="70">
+                        </div>
+                        <div class="input-field col s10">
+                          <textarea id="textarea" row="2" class="materialize-textarea"></textarea>
+                          <label for="textarea" class="">Share your favorites photos!</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col s12 m6 share-icons">
+                          <a href="#"><i class="mdi-image-camera-alt"></i></a>
+                          <a href="#"><i class="mdi-action-account-circle"></i></a>
+                          <a href="#"><i class="mdi-hardware-keyboard-alt"></i></a>
+                          <a href="#"><i class="mdi-communication-location-on"></i></a>
+                        </div>
+                        <div class="col s12 m6 right-align">
+                           <!-- Dropdown Trigger -->
+                            <a class="dropdown-button btn" href="#" data-activates="profliePost2"><i class="mdi-action-language"></i> Public</a><ul id="profliePost2" class="dropdown-content">
+                              <li><a href="#!"><i class="mdi-action-language"></i> Public</a></li>
+                              <li><a href="#!"><i class="mdi-action-face-unlock"></i> Friends</a></li>
+                              <li><a href="#!"><i class="mdi-action-lock-outline"></i> Only Me</a></li>
+                            </ul>
+
+                            <!-- Dropdown Structure -->
+
+
+                            <a class="waves-effect waves-light btn"><i class="mdi-maps-rate-review left"></i>Post</a>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- CreateAlbum -->
+                    <div id="CreateAlbum" class="tab-content col s12  grey lighten-4" style="display: none;">
+                      <div class="row">
+                        <div class="col s2">
+                          <br>
+                            <br>
+                          <img src="<%= user.image %>" alt="" class="circle responsive-img valign profile-image-post" width="70" height="70">
+                        </div>
+                        <div class="input-field col s10">
+                          <textarea id="textarea" row="2" class="materialize-textarea"></textarea>
+                          <label for="textarea" class="">Create awesome album.</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col s12 m6 share-icons">
+                          <a href="#"><i class="mdi-image-camera-alt"></i></a>
+                          <a href="#"><i class="mdi-action-account-circle"></i></a>
+                          <a href="#"><i class="mdi-hardware-keyboard-alt"></i></a>
+                          <a href="#"><i class="mdi-communication-location-on"></i></a>
+                        </div>
+                        <div class="col s12 m6 right-align">
+                           <!-- Dropdown Trigger -->
+                            <a class="dropdown-button btn" href="#" data-activates="profliePost3"><i class="mdi-action-language"></i> Public</a><ul id="profliePost3" class="dropdown-content">
+                              <li><a href="#!"><i class="mdi-action-language"></i> Public</a></li>
+                              <li><a href="#!"><i class="mdi-action-face-unlock"></i> Friends</a></li>
+                              <li><a href="#!"><i class="mdi-action-lock-outline"></i> Only Me</a></li>
+                            </ul>
+
+                            <!-- Dropdown Structure -->
+
+
+                            <a class="waves-effect waves-light btn"><i class="mdi-maps-rate-review left"></i>Post</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--/ profile-page-wall-share -->
+
+                <% if (statuses[0]) { %>
+	<div id="row">
+		<div id="socket"></div>
+		<% for(var i=0; i<statuses.length; i++) { %>
+
+
+
+
+		<!-- <div class="col s12 m8 offset-m2 l6 offset-l3">
+		    <div class="card-panel grey lighten-5 z-depth-1">
+		        <a class="left" href="/users/<%= statuses[i].username %>"><%= statuses[i].username %></a>
+		        <br>
+				<abbr class="timeago right" title="<%= new Date(statuses[i].time).toISOString() %>"></abbr>
+		      <div class="row valign-wrapper">
+
+		        <div class="col s2">
+		          <img src="<%= statuses[i].image %>" alt="<%= statuses[i].username %>" class="circle responsive-img">
+		        </div>
+		        <div class="col s10">
+		          <span class="black-text">
+		            <%= statuses[i].body %>
+		          </span>
+		        </div>
+		      </div>
+		    </div>
+		</div> -->
+
+
+                <!-- profile-page-wall-posts -->
+                <div id="profile-page-wall-posts" class="row">
+                  <div class="col s12">
+                      <!-- small -->
+                      <div id="profile-page-wall-post" class="card">
+                        <div class="card-profile-title">
+                          <div class="row">
+                            <div class="col s1">
+                            <a class="left" href="/users/<%= statuses[i].username %>">
+                              <img src="<%= statuses[i].image %>" alt="" class="circle responsive-img valign profile-post-uer-image">
+                              </a>
+                            </div>
+                            <div class="col s10">
+                            	<a class="left" href="/users/<%= statuses[i].username %>">
+                              <p class="grey-text text-darken-4 margin"><%= statuses[i].username %></p>
+                              <span class="grey-text text-darken-1 ultra-small"><abbr class="timeago left" title="<%= new Date(statuses[i].time).toISOString() %>"></abbr></span>
+                              </a>
+                            </div>
+                            <div class="col s1 right-align">
+                              <i class="mdi-navigation-expand-more"></i>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col s12">
+                              <p><%= statuses[i].body %></p>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- <div class="card-image profile-large">
+                          <img src="http://demo.geekslabs.com/materialize/v3.1/images/gallary/3.jpg" alt="sample" class="responsive-img profile-post-image">
+                          <span class="card-title">Card Title</span>
+                        </div>
+                        <div class="card-content">
+                          <p><%= statuses[i].body %></p>
+                        </div> -->
+                        <div class="card-action row">
+                          <div class="col s4 card-action-share">
+                            <a href="#">Like</a>
+                            <a href="#">Share</a>
+                          </div>
+
+                          <div class="input-field col s8 margin">
+                            <input id="profile-comments" type="text" class="validate">
+                            <label for="profile-comments" class="">Comments</label>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+                <!--/ profile-page-wall-posts -->
+
+                <% } %>
+
+
+
+	<% } else { %>
+		<div id="noposts"> No posts at this time</div>
+	<% } %>
+
+
+              </div>
+              <!--/ profile-page-wall -->
+
+            </div>
+
+        </div>
+
+
+
+
+
+<!-- <h3 class="center" id="gf">Feeds</h3> -->
+

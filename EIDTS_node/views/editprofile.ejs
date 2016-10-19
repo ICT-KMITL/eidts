@@ -1,0 +1,493 @@
+<% layout('layout') -%>
+
+<script>
+var myname = "<%= currentUser.username %>";
+</script>
+<%
+if (user.username == currentUser.username) { 
+    var isMe = true;
+} else {
+    var isMe = false;
+}
+%>
+
+<% block('topbar',
+'\
+<nav id="headerNav" class="pinned" style="top: 0px;">\
+        <div class="nav-wrapper"> \
+            <a href="/" id="logo" class="brand-logo"><img src="../EIDTS_LOGO-1.png" height="80"></a>\
+            <ul id="nav-desktop" class="right hide-on-med-and-down">\
+                <li id="FormTab" class="active FormTab"><a href="/users/'+currentUser.username+'">\
+                    <span id="username"><img class="small_avartar circle " src="'+currentUser.image+'"/>'+currentUser.username+'</span></a>\
+                </li>\
+                <li><a href="/editusers/'+currentUser.username+'">Edit</a></li>\
+                <li><a href="/">News<span class="new badge">1</span></a></li>\
+                <li><a href="/logout">logout</a></li>\
+            </ul>\
+            <ul id="slide-out" class="side-nav" style="left: -310px; width: 300px;">\
+                <li id="FormTab" class="active FormTab"><a href="/users/'+currentUser.username+'">\
+                    <span id="username"><img class="small_avartar circle " src="'+currentUser.image+'"/>'+currentUser.username+'</span></a>\
+                </li>\
+                <li><a href="/editusers/'+currentUser.username+'">Edit</a></li>\
+                <li><a href="/">News<span class="new badge">1</span></a></li>\
+                <li><a href="/logout">logout</a></li>\
+            </ul> <a href="#" data-activates="slide-out" class="button-collapse" style="padding-left: 0.5em"><i class="mdi-navigation-menu"></i></a> \
+        </div>\
+</nav>\
+'
+) -%>
+
+
+<% if (isMe) { %> 
+
+
+    <div id="FormSection" class="row" style="height:100%; padding-top:8.7rem">
+        <!-- side nav section -->
+
+        <div class="container">
+                    <div id="work-collections">
+                        <div class="row">
+
+                        <form method="POST" action="/profile">
+
+                            <div class="col s12 m6 l6">
+                                    <input class="btn-large" type="submit" value="Update">
+
+                                    <ul id="profile-collection" class="collection">
+
+                                        <li class="collection-item avatar">
+                                            <div class="col s12 m4 l9">
+                                                 
+
+                                                <img id="avatar" src="<%= user.image %>" alt="" class="circle responsive-img activator card-profile-image"/>
+
+                                                <!-- 
+                                                <div id='profile-upload' class="circle responsive-img activator card-profile-image">
+                                                <div class="hvr-profile-img">
+                                                    <input type="file" name="logo" id='getval'  class="upload w180" title="Upload your profile picture" id="imag" src="<%= user.image %>"/>
+                                                </div>
+                                                <i class="fa fa-camera"></i>
+
+                                                </div> -->
+
+
+                                                <span class="collection-header">Edit profile</span>
+                                                <p><%= user.title %>&nbsp;<%= user.firstname %> &nbsp;<%= user.lastname %></p>
+                                                <input type="file" name="logo" id='getval'  class="upload w180" title="Upload your profile picture" />
+                                                <input style="display:none;" id="avatarsubmit"  name="image" type="text" value="<%= user.image %>" />
+
+
+
+
+
+                                                <!-- <span class="fieldLabel">Avartar</span>
+                                                    <input name="image" type="text" value="<%= user.image %>"/><br> -->
+
+                                            </div>
+                                        </li>
+                                        <li class="collection-item">
+                                        <div class="row">
+                                           
+                                            <span class="fieldLabel">Bio</span>
+                                            <input id="bio" name="bio" value="<%= user.bio %>"></input><br><br>
+                                            
+                                            
+                                            <div class="input-field col s12 m4 l2">
+                                                <br>
+                                                <select class="browser-default" name="usertitle">
+                                                    <option value="<%= user.title %>" selected><%= user.title %></option>
+                                                    <option value="Mr.">Mr.</option>
+                                                    <option value="Mrs.">Mrs.</option>
+                                                    <option value="Ms.">Ms.</option>
+                                                    <option value="Miss">Miss</option>
+                                                    <option value="Dr.">Dr.</option>
+                                                    <option value="Asst. Prof.">Asst. Prof.</option>
+                                                    <option value="Assoc. Prof.">Assoc. Prof.</option>
+                                                    <option value="Prof.">Prof.</option>
+                                                    <option value="Asst. Prof. Dr.">Asst. Prof. Dr.</option>
+                                                    <option value="Assoc. Prof. Dr.">Assoc. Prof. Dr.</option>
+                                                    <option value="Prof. Dr.">Prof. Dr.</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="input-field col s12 m4 l2">
+                                                <br>
+
+                                            <select class = "browser-default" id="userType">
+                                                <option value="" disabled  selected>Who you are</option>
+                                                <option value="1">Academic Staff</option>
+                                                <option value="2">Student</option>
+                                                <option value="3">Alumni</option>
+                                            </select>
+
+                                            </div>
+                                            
+                                            <div class="input-field col s12 m4 l3">
+                                                <span class="fieldLabel">First Name</span>
+                                                <input placeholder="First Name" name="firstname" type="text" value="<%= user.firstname %>" />
+                                            </div>
+
+                                            <div class="input-field col s12 m4 l4">
+                                                <span class="fieldLabel">Last Name</span>
+                                                <input placeholder="Last Name" name="lastname" type="text" value="<%= user.lastname %>" />
+                                            </div>
+                                            
+                                            <div class="input-field col s12 m4 l3">
+                                                <span class="fieldLabel">Date Of Birth</span>
+                                                <input name="dob" type="date" class="datepicker" value="<%= user.dob %>" />
+                                            </div> 
+                                        </div>
+                                        
+
+
+                                        <div class="row">
+                                            <div class="input-field col s12 m4 l3">
+                                                <span class="fieldLabel">Position</span>
+                                                <input placeholder="<%= user.jobpos %>" name="jobpos" type="text" value="<%= user.jobpos %>"/>
+                                            </div>
+
+                                            <div class="input-field col s12 m4 l5">
+                                                <span class="fieldLabel">Research Lab (Optional)</span>
+                                                <input placeholder="<%= user.lab %>" name="lab" type="text" value="<%= user.lab %>" />
+                                            </div>
+
+                                            <div class="input-field col s12 m4 l4">
+                                                <span class="fieldLabel">Department</span>
+                                                <input placeholder="<%= user.department %>" name="department" type="text" value="<%= user.department %>" />
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="input-field col s12 m4 l5">
+                                                <span class="fieldLabel">Phone</span>
+                                                <input placeholder="<%= user.telno %>" name="telno" type="text" value="<%= user.telno %>" />
+                                            </div>
+                                            <div class="input-field col s12 m4 l5">
+                                                <span class="fieldLabel">Email</span>
+                                                <input placeholder="<%= user.email %>" name="useremail" type="email" class="validate" value="<%= user.email %>" />
+                                            </div>
+                                        </div>
+
+                                        </li>
+                                    </ul>
+                                
+                            </div>
+                            <div class="col s12 m12 l6">
+                                <ul id="projects-collection" class="collection">
+                                    <li class="collection-item avatar">
+                                        <div class="col s12 m4 l9">
+                                            <i class="mdi-social-school circle light-blue darken-2"></i>
+                                            <span class="collection-header">Education Background</span>
+                                            <p>1999-2011</p>
+                                        </div>
+                                        <div class="col l3">
+                                            <div align = "right">
+                                                <a class="waves-effect waves-light btn" id = "addMoreEdu">Add</a>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                        <% if (edu[0]) { %>
+
+                                            <% for(var i=0; i<edu.length; i++) { %>
+
+                                            <li class="collection-item" >
+                                                <div class="row">
+                                                    <div class="col s3">
+                                                        <span class="fieldLabel">Degree</span>
+                                                        <select class="selectoption browser-default" name="user_edu_degree">
+                                                            <option value="<%= edu[i].degree %>" selected><%= edu[i].degree %></option>
+                                                            <option value="High School">High School</option>
+                                                            <option value="College">College</option>
+                                                            <option value="Bachelor's degree">Bachelor's degree</option>
+                                                            <option value="Master's degree">Master's degree</option>
+                                                            <option value="Doctoral Degree">Doctoral Degree</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col s4">
+                                                        <p class="collections-title">
+                                                             <span class="fieldLabel">Institute's Name</span>
+                                                            <input placeholder="<%= edu[i].insititute_name %>" name="user_edu_inst_name[]" type="text" value="<%= edu[i].insititute_name %>" />
+                                                        </p>
+                                                    </div>
+                                                    <div class="col s3">
+                                                        <p class="collections-title">
+                                                             <span class="fieldLabel">Program</span>
+                                                            <input placeholder="<%= edu[i].program %>" name="user_edu_program[]" type="text" value="<%= edu[i].program %>" />
+                                                        </p>
+                                                    </div>
+                                                    <div class="col s2">
+                                                       <span class="fieldLabel">Graduation Year</span>
+                                                       <input name="user_edu_grad_year[]" type="text" value="<%= edu[i].graduation_Year %>" />
+                                                    </div>
+
+                                                    <input style="display: none;" value="<%= edu[i]._id %>" name="user_edu_id[]">
+                                                </div>
+                                            </li>
+                                        <% } %>
+
+                                        <% } else { %>
+                                            <div id="noposts"> No Education Background</div>
+                                        <% } %>
+                                                                                                
+
+                                </ul>
+                            </div>
+
+                            </form>
+
+
+
+                        <div class="col s12 m12 l6">
+                                <ul id="address-collection" class="collection">
+                                    <li class="collection-item avatar">
+                                        <div class="col s12 m4 l9">
+                                            <i class="mdi-action-home circle green darken-2"></i>
+                                            <span class="collection-header">Address(Shared)</span>
+                                            <p>and More Information</p>
+                                        </div>
+
+                                    </li>
+                                    <li class="collection-item">
+                                        <div class="row">
+
+                                            <div class="input-field col s12">
+                                                <span class="fieldLabel">Address Line 1</span>
+                                                <input  id="AddressNo" type="text" >
+                                            </div>
+
+
+                                        </div>
+                                    </li>
+                                    <li class="collection-item">
+                                        <div class="row">
+
+                                            <div class="input-field col s12">
+                                                <span class="fieldLabel">Address Line 2</span>
+                                                <input  id="AddressNo" type="text" >
+                                            </div>
+
+
+                                        </div>
+                                    </li>
+                                    <li class="collection-item">
+                                        <div class="row">
+                                            <div class="input-field col s12 m4 l4">
+                                                <span class="fieldLabel">District</span>
+                                                <input placeholder="Wangthonglang" id="AddressDistrict" type="text" >
+                                            </div>
+
+                                            <div class="input-field col s12 m4 l4">
+                                                <span class="fieldLabel">Province</span>
+                                                <input placeholder="Bangkok" id="AddressCity" type="text" >
+                                            </div>
+                                            <div class="input-field col s12 m4 l4">
+                                                <span class="fieldLabel">Postcode</span>
+                                                <input placeholder="10900" id="AddressProvince" type="text" >
+                                            </div>
+                                        </div>
+                                    </li>
+
+
+
+                                </ul>
+                        </div>
+                        <div class="col s12 m12 l6">
+                                <ul id="expertise-collection" class="collection">
+                                    <li class="collection-item avatar">
+
+                                        <i class="mdi-image-tune circle teal"></i>
+                                       <span class="collection-header">Expertise and Research Interests(Shared)</span>
+                                        <p>Area of your interests</p>
+
+                                    </li>
+                                    <li class="collection-item">
+
+                                        <div class="row">
+                                            <div class="col s4">
+                                                <span class="fieldLabel">
+                                                    Expertise</span>
+                                           <input placeholder="Enter area of your expertise" id="expertise-input" type="text" />
+                                                <p><a class="waves-effect waves-light btn" onclick= "addExpertise()">add</a></p>
+                                            </div>
+
+                                            <div class="col s12 m4 l8" id="expertise-div">
+                                                </div>
+
+                                        </div>
+                                    </li>
+                                   <li class="collection-item">
+                                        <div class="row">
+                                            <div class="col s4">
+                                                <span class="fieldLabel">
+                                                    Interests</span>
+                                           <input placeholder="Enter area of your interests" id="interests-input" type="text" />
+                                                <p><a class="waves-effect waves-light btn" onclick= "addInterests()">add</a></p>
+                                            </div>
+
+                                            <div class="col s12 m4 l8" id="interests-div">
+                                                </div>
+
+                                        </div>
+                                    </li>
+
+
+                                </ul>
+                        </div>
+                        <div class="col s12 m12 l6">
+                            <ul id="projects-collection" class="collection">
+                                    <li class="collection-item avatar">
+                                        <div class="col s12 m4 l9">
+                                            <i class="mdi-action-wallet-travel circle pink darken-2"></i>
+                                            <span class="collection-header">Working Experiences (Shared)</span>
+                                            <p>and career information</p>
+                                        </div>
+                                        <div class="col l3">
+                                            <div align = "right">
+                                                <a class="waves-effect waves-light btn" id = "addMoreEdu">Add</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="collection-item">
+                                        <div class="row">
+                                            <div class="col s5">
+                                                <p class="collections-title">
+                                                     <span class="fieldLabel">
+                                                    Company's Name</span>
+                                           <input placeholder="iDigital Management Solution" id="IntsName" type="text" />
+                                           </p>
+
+                                            </div>
+                                            <div class="col s4">
+
+                                               <span class="fieldLabel">
+                                                    Position</span>
+                                           <input placeholder="Senior Project Manager" id="position1" type="text" />
+                                            </div>
+                                            <div class="col s3">
+
+                                               <span class="fieldLabel">
+                                                   Location</span>
+                                           <input placeholder="Bangkok, Thailand" id="position1" type="text" />
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col s4">
+                                                <p class="collections-title">
+                                                     <span class="fieldLabel">
+                                                    Time Period From</span>
+                                           <select class = "browser-default">
+                                            <option value="" disabled selected>Choose</option>
+                                            <option value="1">January</option>
+                                            <option value="2">Febbuary</option>
+                                            <option value="3">March</option>
+                                            <option value="4">April</option>
+                                            <option value="5">May</option>
+                                               <option value="6">June</option>
+                                               <option value="7">July</option>
+                                               <option value="8">August</option>
+                                               <option value="9">September</option>
+                                               <option value="10">October</option>
+                                               <option value="11">November</option>
+                                               <option value="12">December</option>
+
+
+                                                </select>
+
+                                           </p>
+                                            <p class="collections-title">
+                                                     <span class="fieldLabel">
+                                                   To </span>
+                                           <select class = "browser-default">
+                                            <option value="" disabled selected>Choose</option>
+                                            <option value="1">January</option>
+                                            <option value="2">Febbuary</option>
+                                            <option value="3">March</option>
+                                            <option value="4">April</option>
+                                            <option value="5">May</option>
+                                               <option value="6">June</option>
+                                               <option value="7">July</option>
+                                               <option value="8">August</option>
+                                               <option value="9">September</option>
+                                               <option value="10">October</option>
+                                               <option value="11">November</option>
+                                               <option value="12">December</option>
+
+
+                                                </select>
+
+                                           </p>
+
+
+                                            </div>
+                                            <div class="col s2">
+
+
+                                               <span class="fieldLabel">
+                                                  Year  </span>
+                                               <input placeholder="2013" id="IntsName" type="text" />
+
+                                                <span class="fieldLabel">Year
+                                                     </span>
+
+                                           <input placeholder="2013" id="IntsName" type="text" />
+                                            </div>
+
+
+
+
+
+                                            <div class="col s6">
+                                                <span class="fieldLabel">Description</span>
+                                                    <textarea id="project-abstract" placeholder="Accomplishes financial objectives by forecasting requirements; preparing an annual budget; scheduling expenditures; analyzing variances; initiating corrective actions." class="materialize-textarea" length="1000"  maxlength="1000" rows="10"></textarea>
+                                            </div>
+
+                                        </div>
+                                    </li>
+
+
+                                </ul>
+                        </div>
+                        
+
+                        </div>
+                    </div>
+
+        </div>
+
+        <!-- end side nav section -->
+
+        <!-- content section -->
+
+        <!-- end content section -->
+    </div>
+
+<% } else { %>
+<div class="container">
+<br><br><br><br><br><br>
+<p>this is not your user</p>
+</div>
+<% } %>
+
+
+<script type="text/javascript">
+document.getElementById('getval').addEventListener('change', readURL, true);
+function readURL(){
+    var file = document.getElementById("getval").files[0];
+    var reader = new FileReader();
+    reader.onloadend = function(){
+        // document.getElementById('profile-upload').style.backgroundImage = "url(" + reader.result + ")";
+        $("#avatar").attr("src",reader.result);
+        $("#avatarsubmit").attr("value",reader.result);
+        
+        // alert(reader.result);
+    }
+    if(file){
+        reader.readAsDataURL(file);
+    }else{
+    }
+}
+
+</script>

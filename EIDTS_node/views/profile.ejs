@@ -1,0 +1,539 @@
+<% layout('layout') -%>
+
+<script>
+var myname = "<%= currentUser.username %>";
+</script>
+<%
+if (user.username == currentUser.username) { 
+	var isMe = true;
+} else {
+	var isMe = false;
+}
+%>
+
+<% block('topbar',
+'\
+<nav id="headerNav" class="pinned" style="top: 0px;">\
+        <div class="nav-wrapper"> \
+        	<a href="/" id="logo" class="brand-logo"><img src="../EIDTS_LOGO-1.png" height="80"></a>\
+            <ul id="nav-desktop" class="right hide-on-med-and-down">\
+                <li id="FormTab" class="active FormTab"><a href="/users/'+currentUser.username+'">\
+					<span id="username"><img class="small_avartar circle " src="'+currentUser.image+'"/>'+currentUser.username+'</span></a>\
+				</li>\
+				<li><a href="/editusers/'+currentUser.username+'">Edit</a></li>\
+				<li><a href="/">News<span class="new badge">1</span></a></li>\
+				<li><a href="/logout">logout</a></li>\
+            </ul>\
+            <ul id="slide-out" class="side-nav" style="left: -310px; width: 300px;">\
+                <li id="FormTab" class="active FormTab"><a href="/users/'+currentUser.username+'">\
+					<span id="username"><img class="small_avartar circle " src="'+currentUser.image+'"/>'+currentUser.username+'</span></a>\
+				</li>\
+				<li><a href="/editusers/'+currentUser.username+'">Edit</a></li>\
+				<li><a href="/">News<span class="new badge">1</span></a></li>\
+				<li><a href="/logout">logout</a></li>\
+            </ul> <a href="#" data-activates="slide-out" class="button-collapse" style="padding-left: 0.5em"><i class="mdi-navigation-menu"></i></a> \
+        </div>\
+</nav>\
+'
+) -%>
+
+
+	<div id="FormSection" class="row" style="height:100%; padding-top:8.7rem">
+
+        <div class="container">
+	        <div id="work-collections">
+	            <div class="row">
+	                <div class="col s12 m12 l6">
+	                    <div id="profile-card" class="card">
+	                        <div class="card-image waves-effect waves-block waves-light">
+	                            <img class="" src="http://demo.geekslabs.com/materialize/v2.1/layout03/images/user-bg.jpg" alt="user background">
+	                        </div>
+	                        <div class="card-content">
+	                            <img src="<%= user.image %>" alt="" class="circle responsive-img card-profile-image">
+	                            <% if (isMe) { %> 
+	                            <a href="/editusers/<%= user.username %>" class="btn-floating activator btn-move-up waves-effect waves-light darken-2 right"><i class="large material-icons">mode_edit</i></a>
+	                            <% }%>
+
+	                            <span class="card-title grey-text text-darken-4"><%= user.username %></span>
+	                            <p><i class="mdi-action-perm-identity cyan-text text-darken-2"></i> <%= user.title %>&nbsp;<%= user.firstname %> &nbsp;<%= user.lastname %></p>
+	                            <p><i class="mdi-content-content-paste cyan-text text-darken-2"></i> <%= user.bio %></p>
+	                            <p><i class="mdi-action-perm-phone-msg cyan-text text-darken-2"></i> <%= user.telno %></p>
+	                            <p><i class="mdi-communication-email cyan-text text-darken-2"></i> <%= user.email %></p>
+	                            <p><i class="mdi-action-wallet-travel cyan-text text-darken-2"></i>&nbsp;i am&nbsp;<%= user.jobpos %> &nbsp;in&nbsp;<%= user.lab %>&nbsp;at&nbsp;<%= user.department %></p>
+	                            <p><i class="mdi-social-cake cyan-text text-darken-2"></i> <%= user.dob %></p>
+
+	                        </div>
+<!-- 	                        <% if (isMe) { %> 
+	                        <div class="card-reveal">
+	                        	<span class="card-title cyan-text">Edit profile</span>
+	                        	<span class="card-title grey-text text-darken-4"><%= user.username %><i class="mdi-navigation-close right"></i></span>
+								
+							    <form method="POST" action="/profile">
+							    	<p class="cyan-text">avartar</p>
+									<input name="image" type="text" id="image" value="<%= user.image %>"/><br>
+									<p class="cyan-text">Bio</p>
+									<input id="bio" name="bio" value="<%= user.bio %>"></input><br><br>
+									<p class="cyan-text">Phone : </p>
+									<input id="telno" name="telno" value="<%= user.telno %>"></input><br><br>
+									<input class="waves-effect waves-light btn-large" type="submit" value="Update">
+								</form>
+	                        </div>
+	                        <% } else { %>
+								<div class="card-reveal">
+	                        	<p>Edit</p>
+	                            <span class="card-title grey-text text-darken-4"><%= user.username %><i class="mdi-navigation-close right"></i></span>
+	                            <p><i class="mdi-action-perm-identity cyan-text text-darken-2"></i> <%= user.bio %></p>
+	                            <p><i class="mdi-action-wallet-travel cyan-text text-darken-2"></i> Innovation Research Lab</p>
+	                            <p><i class="mdi-action-perm-phone-msg cyan-text text-darken-2"></i><%= user.telno %></p>
+	                            <p><i class="mdi-communication-email cyan-text text-darken-2"></i>  <%= user.username %></p>
+	                            <p><i class="mdi-social-cake cyan-text text-darken-2"></i> 18th June 1990</p>
+	                            </div>
+
+								<% } %> -->
+	                    </div>
+	                </div>
+
+	                <div class="col s12 m12 l6">
+	                    <ul id="projects-collection" class="collection">
+	                        <br>
+	                        <li class="collection-item avatar">
+	                            <i class="mdi-social-school circle light-blue darken-2"></i>
+
+	                            <span class="collection-header">Education Background</span>
+	                            <% if (edu[0]) { %>
+	                            <p><%= edu[0].graduation_Year %>-<%= edu[edu.length-1].graduation_Year %></p>
+	                            <% } %>
+
+	                        </li>
+	                        <% if (edu[0]) { %>
+
+	                        <% for(var i=0; i<edu.length; i++) { %>
+
+	                        <li class="collection-item">
+	                            <div class="row">
+	                                <div class="col s6">
+	                                    <p class="collections-title"><%= edu[i].insititute_name %></p>
+	                                    <p class="collections-content"><%= edu[i].degree %></p>
+	                                </div>
+	                                <div class="col s3">
+	                                    <br>
+	                                    <span class="task-cat green"><%= edu[i].program %></span>
+	                                </div>
+	                                <div class="col s3"> 
+	                                    <br>
+	                                    <%= edu[i].graduation_Year %>
+	                                </div>
+	                            </div>
+	                        </li>
+
+	                        <% } %>
+
+							<% } else { %>
+								<div id="noposts"> No Education Background</div>
+							<% } %>
+
+
+	                    </ul>
+	                </div>
+
+
+            </div>
+
+<!--             <div class="col s12 m12 l6">
+	            <ul id="projects-collection" class="collection">
+	                <br>
+	                <li class="collection-item avatar">
+
+	                    <i class="mdi-image-tune circle red darken-2"></i>
+	                   <span class="collection-header">Expertise and Research Interests</span>
+	                    <p>Assigned to you</p>
+
+	                </li>
+	                <li class="collection-item">
+	                    <div class="row">
+	                        <div class="col s3">
+	                            <p class="collections-title">Expertise</p>
+	                            <p class="collections-content">Area of Expertise</p>
+	                        </div>
+	                        <div class="col s8">
+	                            <span class="task-cat blue accent-2">Web Development</span>
+	                            <span class="task-cat blue accent-2">Microsoft Office</span>
+	                            <span class="task-cat blue accent-2">Customer Service</span>
+	                            <span class="task-cat blue accent-2">Online Advertising</span>
+	                            <span class="task-cat blue accent-2">Online Advertising</span>
+	                            <span class="task-cat blue accent-2">Online Advertising</span>
+	                            <span class="task-cat blue accent-2">Online Advertising</span>
+	                        </div>
+
+	                    </div>
+	                </li>
+	                <li class="collection-item">
+	                    <div class="row">
+	                        <div class="col s3">
+	                            <p class="collections-title">Research Interests</p>
+	                            <p class="collections-content">Area of Interests </p>
+	                        </div>
+	                        <div class="col s8">
+	                            <span class="task-cat pink accent-2">Database Schema</span>
+	                            <span class="task-cat pink accent-2">Online Marketing</span>
+	                            <span class="task-cat pink accent-2">Customer Service</span>
+	                            <span class="task-cat pink accent-2">Online Advertising</span>
+	                            <span class="task-cat pink accent-2">Online Advertising</span>
+	                            <span class="task-cat pink accent-2">Online Advertising</span>
+	                            <span class="task-cat pink accent-2">Online Advertising</span>
+	                            <span class="task-cat pink accent-2">Database Schema</span>
+	                            <span class="task-cat pink accent-2">Online Marketing</span>
+	                            <span class="task-cat pink accent-2">Customer Service</span>
+	                            <span class="task-cat pink accent-2">Online Advertising</span>
+	                            <span class="task-cat pink accent-2">Online Advertising</span>
+	                            <span class="task-cat pink accent-2">Online Advertising</span>
+	                            <span class="task-cat pink accent-2">Online Advertising</span>
+	                        </div>
+	                    </div>
+	                </li>
+
+	            </ul>
+	        </div>
+
+            <div class="col s12 m12 l6">
+                <ul id="projects-collection" class="collection">
+                    <br>
+                    <li class="collection-item avatar">
+
+                        <i class="mdi-file-folder circle green darken-2"></i>
+
+                       <span class="collection-header">Teaching Subjects</span>
+                        <p>Assigned to you</p>
+
+                    </li>
+                    <li class="collection-item">
+                        <div class="row">
+                            <div class="col s6">
+                                <p class="collections-title">
+                                    Operation Research
+                                    <p class="collections-content">Subject</p>
+
+
+                            </div>
+                            <div class="col s4">
+                                Software Engineering
+                                <p class="collections-content">Program</p>
+                            </div>
+
+                        </div>
+                    </li>
+                    <li class="collection-item">
+                        <div class="row">
+                            <div class="col s6">
+                                <p class="collections-title">
+                                    Mathematics 3
+                                    <p class="collections-content">Subject</p>
+
+                            </div>
+                            <div class="col s4">
+                                Software Engineering
+                                <p class="collections-content">Program</p>
+                            </div>
+
+                        </div>
+
+
+                    </li>
+                    <li class="collection-item">
+                       <div class="row">
+                            <div class="col s6">
+                                <p class="collections-title">
+                                    Fundamental of Electrical
+                                    <p class="collections-content">Subject</p>
+
+                            </div>
+                            <div class="col s4">
+                                Electrical Engineering
+                                <p class="collections-content">Program</p>
+                            </div>
+
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="col s12 m12 l12">
+                <ul id="projects-collection" class="collection">
+                    <br>
+                    <li class="collection-item avatar">
+                        <i class="mdi-hardware-laptop-mac circle light-blue darken-2"></i>
+
+                        <span class="collection-header">Project Supervisor</span>
+                        <p>Assigned to you</p>
+
+                    </li>
+                    <li class="collection-item">
+                        <div class="row">
+                            <div class="col s4">
+                                <p class="collections-title"> Verification Concept for Embedded Platforms</p>
+                                <p class="collections-content">3rd Year Project</p>
+                            </div>
+
+
+                            <div class="col s5">
+                                <p class="collections-title">Operation Systems, Varification, Embedded Systems</p>
+                                <p class="collections-content">Keywords</p>
+                            </div>
+                            <div class="col s3">
+                                <p class="collections-title"> 2014</p>
+                                <p class="collections-content">Year </p>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col s4"> <p class="collections-title">1. Miranda	Gonzales, 2. Walters Newmans </p>
+                               <p class="collections-content">Member</p>
+                            </div>
+
+                            <div class="col s5">
+                                <p class="collections-title">Development of concepts and adaption of verification tools to provide formal verification of device drivers for a particular embedded platform.</p>
+                                <p class="collections-content">Abstract</p>
+                            </div>
+                            <div class="col s3">
+                                <a href="https://swt.informatik.uni-freiburg.de/teaching/student-projects/available/DriverVerificationConcept/arm9_static_driver_verif-20091208-1.pdf">arm9_static_driver_verif-20091208-1.pdf</a>
+                                <p class="collections-content">Project File </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="collection-item">
+                        <div class="row">
+                            <div class="col s4">
+                                <p class="collections-title">  The Context of Visualization</p>
+                                <p class="collections-content">4rd Year Project</p>
+                            </div>
+
+
+                            <div class="col s5">
+                                <p class="collections-title">Automotive, Varification, Embedded Systems,Visualization</p>
+                                <p class="collections-content">Keywords</p>
+                            </div>
+                            <div class="col s3">
+                                <p class="collections-title"> 2013</p>
+                                <p class="collections-content">Year </p>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col s4"> <p class="collections-title">1. Kathryn	Tucker, 2. Randall	Marshall </p>
+                               <p class="collections-content">Member</p>
+                            </div>
+
+                            <div class="col s5">
+                                <p class="collections-title">Software measurement is an essential component of good software engineering. It is used to increase understanding, gaincontrol, and improve software projects, products, processes, and resources.</p>
+                                <p class="collections-content">Abstract</p>
+                            </div>
+                            <div class="col s3">
+                                <a href="https://www.dropbox.com/s/shkhtd6cyh532zj/ProposalVisualization_revised_June16.pdf">Proposal Visualization</a>
+                                <p class="collections-content">Project File </p>
+                            </div>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="col s12 m12 l12">
+                <ul id="projects-collection" class="collection">
+                    <br>
+                    <li class="collection-item avatar">
+                        <i class="mdi-hardware-laptop-mac circle teal darken-2"></i>
+
+                        <span class="collection-header">Research Funding</span>
+                        <p>Assigned to you</p>
+
+                    </li>
+                    <li class="collection-item">
+                        <div class="row">
+                            <div class="col s3">
+                                <p class="collections-title"> Artificial Language Understanding In Robots </p>
+                                <p class="collections-content">Research Project</p>
+                            </div>
+
+
+                            <div class="col s2">
+                                <p class="collections-title">Principal Investigator</p>
+                                <p class="collections-content">Position</p>
+                            </div>
+                            <div class="col s4">
+                                <p class="collections-title">Automotive, Varification, Embedded Systems,Visualization</p>
+                                <p class="collections-content">Keywords</p>
+                            </div>
+
+                            <div class="col s2">
+                                <p class="collections-title"> 2013</p>
+                                <p class="collections-content">Year </p>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col s3"> <p class="collections-title">Miranda	Gonzales as Sub-Investigator</p>
+                            <p class="collections-title">Walters Newmans as Data Coordinator</p>
+                               <p class="collections-content">Member</p>
+                            </div>
+
+                            <div class="col s2">
+                                <p class="collections-title">CHIST-ERA</p>
+                                <p class="collections-content">Funding Agency</p>
+                            </div>
+
+                            <div class="col s4">
+                                <p class="collections-title">ATLANTIS attempts to understand and model the very first stages in grounded language learning, as we see in children until the age of three.</p>
+                                <p class="collections-content">Abstract</p>
+                            </div>
+                            <div class="col s2">
+                                <a href="https://swt.informatik.uni-freiburg.de/teaching/student-projects/available/DriverVerificationConcept/arm9_static_driver_verif-20091208-1.pdf">arm9_static_driver_verif-20091208-1.pdf</a>
+                                <p class="collections-content">Project File </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="collection-item">
+                        <div class="row">
+                            <div class="col s3">
+                                <p class="collections-title"> Artificial Language Understanding In Robots </p>
+                                <p class="collections-content">Research Project</p>
+                            </div>
+
+
+                            <div class="col s2">
+                                <p class="collections-title">Principal Investigator</p>
+                                <p class="collections-content">Position</p>
+                            </div>
+                            <div class="col s4">
+                                <p class="collections-title">Automotive, Varification, Embedded Systems,Visualization</p>
+                                <p class="collections-content">Keywords</p>
+                            </div>
+
+                            <div class="col s2">
+                                <p class="collections-title"> 2013</p>
+                                <p class="collections-content">Year </p>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col s3"> <p class="collections-title">Miranda	Gonzales as Sub-Investigator</p>
+                            <p class="collections-title">Walters Newmans as Data Coordinator</p>
+                               <p class="collections-content">Member</p>
+                            </div>
+
+                            <div class="col s2">
+                                <p class="collections-title">CHIST-ERA</p>
+                                <p class="collections-content">Funding Agency</p>
+                            </div>
+
+                            <div class="col s4">
+                                <p class="collections-title">ATLANTIS attempts to understand and model the very first stages in grounded language learning, as we see in children until the age of three.</p>
+                                <p class="collections-content">Abstract</p>
+                            </div>
+                            <div class="col s2">
+                                <a href="https://swt.informatik.uni-freiburg.de/teaching/student-projects/available/DriverVerificationConcept/arm9_static_driver_verif-20091208-1.pdf">arm9_static_driver_verif-20091208-1.pdf</a>
+                                <p class="collections-content">Project File </p>
+                            </div>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="col s12 m12 l12">
+                <ul id="projects-collection" class="collection">
+                    <br>
+                    <li class="collection-item avatar">
+                        <i class="mdi-action-description circle pink "></i>
+
+                        <span class="collection-header">Papers</span>
+                        <p>Assigned to you</p>
+
+                    </li>
+                    <li class="collection-item">
+                        <div class="row">
+                            <div class="col s4">
+                                <p class="collections-title"> Verification Concept for Embedded Platforms</p>
+                                <p class="collections-content">3rd Year Project</p>
+                            </div>
+
+
+                            <div class="col s4">
+                                <p class="collections-title">Operation Systems, Varification, Embedded Systems</p>
+                                <p class="collections-content">Keywords</p>
+                            </div>
+                            <div class="col s1">
+                                <p class="collections-title"> 2014</p>
+                                <p class="collections-content">Year </p>
+                            </div>
+                            <div class="col s3">
+                                <p class="collections-title"> Academic and Scientific Publishing</p>
+                                <p class="collections-content">Publication </p>
+                            </div>
+
+
+                        </div>
+                        <div class="row">
+                            <div class="col s4"> <p class="collections-title">1. Miranda	Gonzales, 2. Walters Newmans </p>
+                               <p class="collections-content">Co-Atuhor</p>
+                            </div>
+
+                            <div class="col s4">
+                                <p class="collections-title">Development of concepts and adaption of verification tools to provide formal verification of device drivers for a particular embedded platform.</p>
+                                <p class="collections-content">Abstract</p>
+                            </div>
+                            <div class="col s3">
+                                <a href="https://swt.informatik.uni-freiburg.de/teaching/student-projects/available/DriverVerificationConcept/arm9_static_driver_verif-20091208-1.pdf">arm9_static_driver_verif-20091208-1.pdf</a>
+                                <p class="collections-content">Project File </p>
+                            </div>
+                        </div>
+                    </li>
+                   <li class="collection-item">
+                        <div class="row">
+                            <div class="col s4">
+                                <p class="collections-title"> Verification Concept for Embedded Platforms</p>
+                                <p class="collections-content">3rd Year Project</p>
+                            </div>
+
+
+                            <div class="col s4">
+                                <p class="collections-title">Operation Systems, Varification, Embedded Systems</p>
+                                <p class="collections-content">Keywords</p>
+                            </div>
+                            <div class="col s1">
+                                <p class="collections-title"> 2014</p>
+                                <p class="collections-content">Year </p>
+                            </div>
+                            <div class="col s3">
+                                <p class="collections-title"> Academic and Scientific Publishing</p>
+                                <p class="collections-content">Publication </p>
+                            </div>
+
+
+                        </div>
+                        <div class="row">
+                            <div class="col s4"> <p class="collections-title">1. Miranda	Gonzales, 2. Walters Newmans </p>
+                               <p class="collections-content">Co-Atuhor</p>
+                            </div>
+
+                            <div class="col s4">
+                                <p class="collections-title">Development of concepts and adaption of verification tools to provide formal verification of device drivers for a particular embedded platform.</p>
+                                <p class="collections-content">Abstract</p>
+                            </div>
+                            <div class="col s3">
+                                <a href="https://swt.informatik.uni-freiburg.de/teaching/student-projects/available/DriverVerificationConcept/arm9_static_driver_verif-20091208-1.pdf">arm9_static_driver_verif-20091208-1.pdf</a>
+                                <p class="collections-content">Project File </p>
+                            </div>
+                        </div>
+                    </li>
+
+                </ul>
+            </div> -->
+
+            </div>
+	   </div>
+</div>
+
+
+
+
