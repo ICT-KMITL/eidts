@@ -25,9 +25,6 @@
 </nav>\
 '
 ) -%>
-<br>
-<br>
-<br>
 <%
 if (user.username == user.username) { 
 	var isMe = true;
@@ -118,14 +115,20 @@ if (user.username == user.username) {
                 <!-- Profile About  -->
 
                 <div class="collection">
-				<a href="#!" class="collection-item active">Directory</a>
-	 			<% for(var i=0; i<directory.length; i++) { %>
-	 				<a href="#!" class="collection-item"><%= directory[i].firstname %></a>
+				<a href="#!" class="collection-item active">Directories User</a>
+	 			<% for(var i=0; i<directories.length; i++) { %>
+
+         
+	 				<a href="/users/<%=directories[i].username%>" class="collection-item"> 
+
+          <img class="small_avartar circle " src="<%= directories[i].image %>"/><%= directories[i].department %><br>
+          <%= directories[i].firstname %>&nbsp;<%= directories[i].lastname %>&nbsp;<%= directories[i].email %></a>
+
                 <% } %>
                 </div>
 
                 <!-- Profile About Details  -->
-                <ul id="profile-page-about-details" class="collection z-depth-1">
+<!--                 <ul id="profile-page-about-details" class="collection z-depth-1">
                   <li class="collection-item">
                     <div class="row">
                       <div class="col s5 grey-text darken-1"><i class="mdi-action-wallet-travel"></i> Project</div>
@@ -150,20 +153,20 @@ if (user.username == user.username) {
                       <div class="col s7 grey-text text-darken-4 right-align">18th June, 1991</div>
                     </div>
                   </li>
-                </ul>
+                </ul> -->
                 <!--/ Profile About Details  -->
 
                 <!-- Profile About  -->
-                <div class="card amber darken-2">
+<!--                 <div class="card amber darken-2">
                   <div class="card-content white-text center-align">
                     <p class="card-title"><i class="mdi-social-group-add"></i> 3685</p>
                     <p>Followers</p>
                   </div>
-                </div>
+                </div> -->
                 <!-- Profile About  -->
 
                 <!-- Profile feed  -->
-                <ul id="profile-page-about-feed" class="collection z-depth-1">
+<!--                 <ul id="profile-page-about-feed" class="collection z-depth-1">
                   <li class="collection-item avatar">
                     <img src="<%= user.image %>" alt="" class="circle">
                     <span class="title">Project Title</span>
@@ -196,7 +199,7 @@ if (user.username == user.username) {
                     </p>
                     <a href="#!" class="secondary-content"><i class="mdi-action-track-changes"></i></a>
                   </li>
-                </ul>
+                </ul> -->
                 <!-- Profile feed  -->
 
                 <!-- task-card -->
@@ -246,10 +249,10 @@ if (user.username == user.username) {
                     <ul class="tabs tab-profile z-depth-1 light-blue" style="width: 100%;">
                       <li class="tab col s3"><a class="white-text waves-effect waves-light active" href="#UpdateStatus"><i class="mdi-editor-border-color"></i> Update Status</a>
                       </li>
-                      <li class="tab col s3"><a class="white-text waves-effect waves-light" href="#AddPhotos"><i class="mdi-image-camera-alt"></i> Add Photos</a>
+<!--                       <li class="tab col s3"><a class="white-text waves-effect waves-light" href="#AddPhotos"><i class="mdi-image-camera-alt"></i> Add Photos</a>
                       </li>
                       <li class="tab col s3"><a class="white-text waves-effect waves-light" href="#CreateAlbum"><i class="mdi-image-photo-album"></i> Create Album</a>
-                      </li>
+                      </li> -->
                     <div class="indicator" style="right: 490px; left: 0px;"></div><div class="indicator" style="right: 490px; left: 0px;"></div></ul>
                     <!-- UpdateStatus-->
                     <div id="UpdateStatus" class="tab-content col s12  grey lighten-4" style="display: block;">

@@ -17,7 +17,7 @@ var app = express();
 app.engine('ejs', engine);
 app.set('views', __dirname+'/views');
 app.use(express.static(__dirname+'/public'));
-app.use(express.logger('dev'));
+// app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.cookieParser());
 app.use(express.session({secret: 'coloft'}));
@@ -54,7 +54,7 @@ var User = mongoose.model('User',
 	bio: String,
 });
 
-var Directory = mongoose.model('Directory', 
+var Directories = mongoose.model('Directories', 
 {
 	title:String,
 	firstname: String,
@@ -149,16 +149,11 @@ var Papers = mongoose.model('Papers',{
 app.get('/', function (req, res) {
 
 	if (req.session.user){
-		Directory.find({}, function(err, directory){
-
-				console.log("directory ",directory.length);
-
-			});
 
 		Status.find({}).sort({time: -1}).execFind(function (err, statuses){
-			Directory.find({}, function(err, directory){
+			User.find({}, function(err, directories){
 
-				res.render('homepage.ejs', {user: req.session.user, statuses: statuses,directory: directory});
+				res.render('homepage.ejs', {user: req.session.user, statuses: statuses,directories: directories});
 			});
 
 		});
@@ -272,6 +267,13 @@ app.post('/signup', function (req, res){
 					hidden: false,
 					wall: []
 				};
+				
+				// var newDirectoriesUser = new Directories(userData).save(function (err){
+
+				// 	req.session.user = userData;
+				// 	console.log('Directories New user '+username+':'+usertype+'has been created!');
+
+				// });
 
 				var newUser = new User(userData).save(function (err){
 
