@@ -25,14 +25,13 @@
 
 
 <style>
-div.scroll {
 
+div.scroll {
     height: 300px;
     overflow: scroll;
 }
 
 div.hidden {
-
     width: 100px;
     height: 100px;
     overflow: hidden;
@@ -40,54 +39,32 @@ div.hidden {
 
 div.card-image {
     height: 200px;
-  /*background-image: url(https://mdn.mozillademos.org/files/8971/firefox_logo.png);*/
-  background-size: contain;
-  border: 2px solid darkgray;
-  color: #000; text-shadow: 1px 1px 0 #fff;
+    background-image: url(https://mdn.mozillademos.org/files/8971/firefox_logo.png);
+    background-size: contain;
+    border: 2px solid darkgray;
+    color: #000;
+    text-shadow: 1px 1px 0 #fff;
 }
 
-
-div.container{
+div.container {
     width: 80%;
 }
 
-div.card1{
+div.card1 {
     width: 100%;
     height: 350px;
 }
-#contact{
-     background: #0091EA;
+
+#contact {
+    background: #0091EA;
 }
 
-div.parallax-container{
+#team{
+    background: rgb(247,247,247);
+}
+
+div.parallax-container {
     height: 650px;
-}
-    
-    
-#text-vid{
-    top: 250px;
-    position: relative;
-    z-index: 1;
-    border-left: 5px solid #00838F;
-    margin: 0 0 35px;
-    padding: 10px 0 10px 50px;
-    color: #00838F;
-    text-transform: uppercase;       
-}
-    
-h1#tittlevid{
-    top: 220px;
-    position: relative;
-    z-index: 1;
-
-    margin: 0 0 35px;
-    padding: 10px 0 10px 50px;
-      
-}
-    
-footer.page-footer{
-
-    margin-top: 0px !important;
 }
 
 </style>
@@ -105,7 +82,7 @@ footer.page-footer{
     <div class="slider" id="header-slide" >
         <ul class="slides">
             <li>
-                <a href="#"> <img src="welcome/EIDTS-header.png"></a>
+                <a href="#"> <img src="welcome/img/EIDTS-header.png"></a>
                 <div class="caption right-align">
                     <h3></h3>
                     <h5 class="light grey-text text-lighten-3"></h5>
@@ -136,31 +113,28 @@ footer.page-footer{
 <!--  Works and News  -->
     <div class="section scrollspy" id="work">
         <div class="container">
-            <h3 class="header text_b">Highlights </h3>
+            
             <div id="work-collections">
                 <div class="row">
+
                     <div class="col s12 m4 l4">
+                    <div id="anounceheader" class="green" colspan="7">Highlights</div>
                         <div class="slider" id="new-slide">
                             <ul class="slides">
                                 <li>
                                     <div class="card medium">
                                         <div class="card-image" id="news-img">
-                                            <a href="http://www.engineeringexpo.com/index.php/news/448-kmitl-innovative-awards"> <img src="welcome/new1.jpg"> </a> <span class="card-title"> </span> </div>
+                                            <a href="http://www.engineeringexpo.com/index.php/news/448-kmitl-innovative-awards"> <img src="welcome/img/new1.jpg"> </a> <span class="card-title"> </span> </div>
                                         <div class="card-content">
                                             <p>ประกาศผล 10 ทีมที่ผ่านเข้ารอบ สำหรับเวทีการประกวด ครั้งที่ 5 ประจำปี 2559 ซึ่งมีน้องๆ ส่งผลงานเข้าประกวดกันมากมาย...
                                                 <br> </p>
                                         </div>
-                                        <!--
-                                        <div class="card-action">
-                                            <a href="http://www.engineeringexpo.com/index.php/news/448-kmitl-innovative-awards">This is a link</a>
                                         </div>
-
-                                       --></div>
                                 </li>
                                 <li>
                                     <div class="card medium">
                                         <div class="card-image">
-                                            <a href="http://www.engineeringexpo.com/index.php/highlight/418-egat"> <img src="welcome/new2.jpg"></a> <span class="card-title"> </span> </div>
+                                            <a href="http://www.engineeringexpo.com/index.php/highlight/418-egat"> <img src="welcome/img/new2.jpg"></a> <span class="card-title"> </span> </div>
                                         <div class="card-content">
                                             <p>ไม่ต้องรอศูนย์การเรียนรู้ กฟผ. ในอนาคต เพราะงานนี้ วิศวะ’59 จัดมาให้ชมกัน กับ Honda JAZZ รถยนต์ไฟฟ้าดัดแปลงต้นแบบ ที่นำมาใช้งานจริงแล้ว ...</p>
                                         </div>
@@ -169,7 +143,7 @@ footer.page-footer{
                                 <li>
                                     <div class="card medium">
                                         <div class="card-image">
-                                            <a href="http://www.engineeringexpo.com/index.php/highlight/357-tesla"> <img src="welcome/new3.jpg"> </a> <span class="card-title"> </span> </div>
+                                            <a href="http://www.engineeringexpo.com/index.php/highlight/357-tesla"> <img src="welcome/img/new3.jpg"> </a> <span class="card-title"> </span> </div>
                                         <div class="card-content">
                                             <p>ETON เปิดตำนานรถสปอร์ตเมืองไทยนำเข้า TESLA ROADSTER สปอร์ตพรีเมี่ยมพลังงานไฟฟ้า 100 % คันแรกของเมืองไทย "แรง เร้า ใจ แบบไร้มลพิษ" ... </p>
                                         </div>
@@ -184,12 +158,12 @@ footer.page-footer{
                         <div class="row">
                             <div class="col s12">
                                 <ul class="tabs">
-                                    <li class="tab col s3"><a href="#researches">Researches</a></li>
-                                    <li class="tab col s3"><a class="active" href="#events">Events</a></li>
+                                    <li class="tab col s3"><a class="pink" href="#researches">Researches</a></li>
+                                    <li class="tab col s3"><a class="active red" href="#events">Events</a></li>
                                 </ul>
                             </div>
                             <div id="researches" class="col s12">
-                                <div class="slider" id="research-slide">
+                                <div class="slider" id="research-slide" >
                                     <ul class="slides">
                                         <li>
                                             <a class="hoverfx-img" href="https://drive.google.com/file/d/0B1WsIOU6mMvyQXU3N0RIY21nSVE/view?usp=sharing">
@@ -237,7 +211,7 @@ footer.page-footer{
                     </div>
                     <div class="col s12 m4 l4">
                         <!-- Profile feed  -->
-                        <div id="anounceheader" colspan="7">Anoucement</div>
+                        <div id="anounceheader" class="orange" colspan="7">Anoucement</div>
                         <div class="scroll" width=300px>
                             <div class="card" height=3 50px>
                                 <ul id="profile-page-about-feed" class="collection z-depth-1">
@@ -285,7 +259,7 @@ footer.page-footer{
                 <div class="col s12 m4">
                     <div class="collection-item avatar">
                         <center>
-                            <a class="waves-effect waves-block waves-light" href="/login?type=staff"> <img class="circle" src="welcome/prof.jpg" height=200 width=200> </a>
+                            <a class="waves-effect waves-block waves-light" href="/login?type=staff"> <img class="circle responsive-img" src="welcome/img/prof1.png" height=200 width=200> </a>
                             <div class="card-content">
                                 <h4></h4> <a class="card-title activator grey-text text-darken-4" href="/login?type=staff">Academic Staffs<br/>
                             <small><em><a class="red-text text-darken-1" href="/login?type=staff"></a></em>
@@ -300,7 +274,7 @@ footer.page-footer{
                     <div class="collection-item avatar">
                         <center>
                             <div class="waves-effect waves-block waves-light">
-                                <a class="waves-effect waves-block waves-light" href="/login?type=student"> <img class="activator circle" src="welcome/student.jpg" height=200 width=200> </a>
+                                <a class="waves-effect waves-block waves-light" href="/login?type=student"> <img class="activator circle responsive-img" src="welcome/img/student1.png" height=200 width=200> </a>
                             </div>
                             <div class="card-content">
                                 <h4></h4> <a class="card-title activator grey-text text-darken-4" href="/login?type=student">Students<br/>
@@ -316,7 +290,7 @@ footer.page-footer{
                     <div class="collection-item avatar">
                         <center>
                             <div class="waves-effect waves-block waves-light">
-                                <a class="waves-effect waves-block waves-light" href="/login?type=alumni"> <img class="activator circle" src="welcome/alumnus.jpg" height=200 width=200> </a>
+                                <a class="waves-effect waves-block waves-light" href="/login?type=alumni"> <img class="activator circle responsive-img" src="welcome/img/alumni.png" height=200 width=200> </a>
                             </div>
                             <div class="card-content">
                                 <h4></h4> <a class="card-title activator grey-text text-darken-4" href="/login?type=alumni">Alumni<br/>
@@ -333,7 +307,7 @@ footer.page-footer{
                     <div class="collection-item avatar">
                         <center>
                             <div class="waves-effect waves-block waves-light">
-                                <a class="waves-effect waves-block waves-light" href="/login?type=startup"> <img class="activator circle" src="welcome/startup.jpg" height=200 width=200> </a>
+                                <a class="waves-effect waves-block waves-light" href="/login?type=startup"> <img class="activator circle responsive-img" src="welcome/img/startup.jpg" height=200 width=200> </a>
                             </div>
                             <div class="card-content">
                                 <h4></h4> <a class="card-title activator grey-text text-darken-4" href="/login?type=startup">Startups<br/>
@@ -348,7 +322,7 @@ footer.page-footer{
                     <div class="collection-item avatar">
                         <center>
                             <div class="waves-effect waves-block waves-light">
-                                <a class="waves-effect waves-block waves-light" href="/login?type=lab"> <img class="activator circle" src="welcome/project.jpg" height=200 width=200> </a>
+                                <a class="waves-effect waves-block waves-light" href="/login?type=lab"> <img class="activator circle responsive-img" src="welcome/img/project.jpg" height=200 width=200> </a>
                             </div>
                             <div class="card-content">
                                 <h4></h4> <a class="card-title activator grey-text text-darken-4" href="/login?type=lab">Labs<br/>
@@ -363,7 +337,7 @@ footer.page-footer{
                     <div class="collection-item avatar">
                         <center>
                             <div class="waves-effect waves-block waves-light">
-                                <a class="waves-effect waves-block waves-light" href="/login?type=industry"> <img class="activator circle" src="welcome/industries.jpg" height=200 width=200> </a>
+                                <a class="waves-effect waves-block waves-light" href="/login?type=industry"> <img class="activator circle responsive-img" src="welcome/img/indus.png" height=200 width=200> </a>
                             </div>
                             <div class="card-content">
                                 <h4></h4> <a class="card-title activator grey-text text-darken-4" href="/login?type=industry">Industries<br/>
@@ -378,106 +352,150 @@ footer.page-footer{
     </div>
 
 
+    <div class="parallax-container" style="height:200px;">
+        <div class="wrapper-vid">
+            <div class="row center" id="text-vid">
+                <br>
+                <br>
+                <br>
+                <h3 id="tittlevid">Loop keeps the world talking, for free.<br></h3> <a href="#" id="download-button" class="btn-large waves-effect waves-light blue">Get Started</a> </div>
+        </div>
+        <div class="parallax"><img class="responsive-img" src="welcome/img/fixed-background-2.jpg"></div>
+    </div>
+    <!--   
+  <div id="intro" class="section scrollspy">
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <h2 class="center header text_h2"> Free Messaging, Voice and Video Calls
+Whenever, Wherever.<span class="span_h2"></span></h2>
+                </div>
 
-<div class="parallax-container">
-    <div class="section ">
-      <div class="container">
 
-
-             <div class="row">
-            <div class="col s12 m6 l6">
-                <div class="device wp3">
-                    <div class="device-content">
-                        <div class="showcase-slider">
-                            <ul class="slides" id="showcaseSlider">
-                                <li> <img src="welcome/img/screen1.jpg" alt="Device Content Image"> </li>
-                                <li> <img src="welcome/img/screen2.jpg" alt="Device Content Image"> </li>
-                                <li> <img src="welcome/img/screen3.jpg" alt="Device Content Image"> </li>
-                            </ul>
-                        </div>
+                
+                
+                <div class="col s12 m4 l4">
+                    <div class="center promo promo-example"> <i class="mdi-notification-voice-chat blue-text"></i>
+                        <h5 class="promo-caption">Video Phone and Video Conference</h5>
+                        <p class="light center">Invite your friends, colleagues or anyone to a call. And it is now easier than you think.</p>
                     </div>
                 </div>
-                    <br>
-           </div>
-           <div class="col 6 offset-s6" id="loopsection">
-                            <br>
-                            <br>
-                            <br>
-                        <h4>Video Phone and Video Conference</h4>
-                            <h6>Invite your friends, colleagues or anyone to a call. And it is now easier than you think.</h6>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                        <h4>Whiteboard Meeting</h4>
-                            <h6>Meet and collaborate online with people.A Whiteboard is a blank page that you can use to work together.</h6>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                        <h4>Screen Sharing</h4>
-                            <h6>You can share your real-time screen across with people you are calling and others friends you choose. </h6>
-                            <br>
-                            <br>
-                        <h4>Live Chat</h4>
-                            <h6>You can chat in real-time across with people you are calling and others friends you choose. </h6>
-                            <br>
-                            <br>
-                        <h4>Live Meeting</h4>
-                            <h6>Meet and collaborate online with people real-time across with people you are calling and others friends you choose. </h6>
-                  <a href="/login" id="download-button" class="btn-large waves-effect waves-light blue">Get Started</a>
+                <div class="col s12 m4 l4">
+                    <div class="center promo promo-example"> <i class="mdi-social-group blue-text"></i>
+                        <h5 class="promo-caption">Whiteboard Meeting</h5>
+                        <p class="light center">Meet and collaborate online with people.A Whiteboard is a blank page that you can use to work together with other meeting participants by being able to type notes, draw, or import images.</p>
+                    </div>
+                </div>
+                <div class="col s12 m4 l4">
+                    <div class="center promo promo-example "> <i class="mdi-communication-location-on blue-text"></i>
+                        <h5 class="promo-caption">Location Sharing</h5>
+                        <p class="light center">You can share your real-time location across with people you are calling and others friends you choose. Also you can change who can see your location or turn off Location Sharing at any time.</p>
+                    </div>
+                </div>
             </div>
-                 </div>
-    </div>
-  </div>
-    <!-- <div class="parallax"><img src="welcome/img/texture-bw.png"></div> -->
-    <div class="parallax"><img src="welcome/img/fixed-background-2.jpg"></div>
-</div>
-
-    <!--Footer-->
-    <footer class="page-footer blue" id="contact">
-    <div class="container">
-      <div class="row">
-        <div class="col l5 s12">
-          <h5 class="white-text">About us</h5>
-          <p class="grey-text text-lighten-4">Engineering and technology educational and research, together with strong virtue and morality, are the foundations of social and national developments.</p>
-
-
         </div>
-        <div class="col l4 s12">
-          <h5 class="white-text">Contact Us</h5>
-          <ul>
-            <li><div class="white-text" >King Mongkut's Institute of Technology Ladkrabang
-
-No.1, Soi Chalong Krung 1, Chalong Krung Road, Ladkrabang Sub-district, Ladkrabang district, Bangkok 10520 <p>Tel : (+66)2329-8000 Extension 3484</p><p>Email : inter.eng.office@live.kmitl.ac.th</p>
-</div></li>
-
-          </ul>
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Engineering KMITL</h5>
-                    <ul>
-
-                        <li>
-                            <a class="white-text" href="https://www.facebook.com/kmitl001"> <i class="small fa fa-facebook-square white-text"></i> Facebook </a>
-                        </li>
-                        <li>
-                            <a class="white-text" href="https://www.youtube.com/channel/UCujzXFxneYcVLgKhTfyPm2A"> <i class="small fa fa-youtube-square white-text"></i> Youtube </a>
-                        </li>
-                        <li>
-                            <a class="white-text" href="http://engineer.kmitl.ac.th/engineer2015/#"> <i class="small mdi-hardware-desktop-mac white-text"></i> Our Website </a>
-                        </li>
-                    </ul>
-        </div>
-      </div>
     </div>
-    <div class="footer-copyright">
-      <div class="container">
-      Made by <a class="brown-text text-lighten-3" href="#">E I D T S  </a>&copy; Copyright 2016 EIDTS KMITL
-      </div>
-    </div>
-  </footer>
+    
+    
+    -->
+    <div class="parallax-containerd">
+        <div class="section ">
+            <div class="container">
+                <div class="row">
+<!--                     <div class="col s12 m6 l6" style="height: 700px">
+                        <div class="device wp3" style="position: relative">
+                            <div class="device-content">
+                                <div class="showcase-slider">
+                                    <ul class="slides" id="showcaseSlider">
+                                        <li> <img src="welcome/img/screen1.jpg" alt="Device Content Image"> </li>
+                                        <li> <img src="welcome/img/screen2.jpg" alt="Device Content Image"> </li>
+                                        <li> <img src="welcome/img/screen3.jpg" alt="Device Content Image"> </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <br> 
+                    </div> -->
+                    <div class="col s12 m12 l12">
+
+                        <div class="row">
+                            <div class="col s12 m6 l6">
+                            <div class="center promo promo-example"> <i class="mdi-communication-chat  blue-text">     <h5 class="promo-caption">Live Chat</h5></i>
+                                
+                                </div>
+                            </div>
+                            <div class="col s12 m6 l6">
+                            <div class="center promo promo-example"> <i class="mdi-notification-voice-chat blue-text"><h5 class="promo-caption">Video Phone</h5> </i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col s12 m12 l12">
+                                <div class="center promo promo-example"> <i class="mdi-social-group-add blue-text"><h5 class="promo-caption">Whiteboard Meeting</h5></i>
+
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col s12 m6 l6">
+                            <div class="center promo promo-example"> <i class="mdi-social-group blue-text">     <h5 class="promo-caption">Video Conference</h5></i>
+                                
+                                </div>
+                            </div>
+                            <div class="col s12 m6 l6">
+                            <div class="center promo promo-example"> <i class="mdi-hardware-desktop-mac blue-text">     <h5 class="promo-caption">Screen Sharing</h5></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        <!--Footer-->
+        <footer class="page-footer blue" id="contact">
+            <div class="container">
+                <div class="row">
+                    <div class="col l5 s12"> <img src="welcome/img/EIDTS_LOGO-1.png" height=110>
+                        <p>
+                            <h5 class="white-text">About us</h5>
+                            <p class="grey-text text-lighten-4 light">Engineering and technology educational and research, together with strong virtue and morality, are the foundations of social and national developments.</p>
+                    </div>
+                    <div class="col l4 s12">
+                        <h5 class="white-text">Contact Us</h5>
+                        <ul>
+                            <li>
+                                <div class="container white-text light">King Mongkut's Institute of Technology Ladkrabang No.1, Soi Chalong Krung 1, Chalong Krung Road, Ladkrabang Sub-district, Ladkrabang district, Bangkok 10520
+                                    <p>Tel : (+66)2329-8000 Extension 3484</p>
+                                    <p>Email : inter.eng.office@live.kmitl.ac.th</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col l3 s12">
+                        <h5 class="white-text">Engineering KMITL</h5>
+                        <ul>
+                            <li>
+                                <a class="white-text" href="https://www.facebook.com/kmitl001"> <i class="small fa fa-facebook-square white-text"></i> Facebook </a>
+                            </li>
+                            <li>
+                                <a class="white-text" href="https://www.youtube.com/channel/UCujzXFxneYcVLgKhTfyPm2A"> <i class="small fa fa-youtube-square white-text"></i> Youtube </a>
+                            </li>
+                            <li>
+                                <a class="white-text" href="http://engineer.kmitl.ac.th/engineer2015/#"> <i class="small mdi-hardware-desktop-mac white-text"></i> Our Website </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container"> Made by <a class="brown-text text-lighten-3" href="#">E I D T S  </a>&copy; Copyright 2016 EIDTS KMITL </div>
+            </div>
+        </footer>
 
 
     <!--  Scripts-->

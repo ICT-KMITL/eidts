@@ -39,7 +39,11 @@ if (user.username == user.username) {
 
 
 
-<div id="work-collections">
+<div id="work-collections" style="
+    padding-top: 5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+">
                         <div class="col s12 m12 l12">
                                 <div id="profile-page-header" class="card" style="overflow: hidden;">
                 <div class="card-image waves-effect waves-block waves-light">
@@ -114,18 +118,101 @@ if (user.username == user.username) {
                 </div>
                 <!-- Profile About  -->
 
-                <div class="collection">
-				<a href="#!" class="collection-item active">Directories User</a>
-	 			<% for(var i=0; i<directories.length; i++) { %>
 
-         
-	 				<a href="/users/<%=directories[i].username%>" class="collection-item"> 
 
-          <img class="small_avartar circle " src="<%= directories[i].image %>"/><%= directories[i].department %><br>
-          <%= directories[i].firstname %>&nbsp;<%= directories[i].lastname %>&nbsp;<%= directories[i].email %></a>
 
-                <% } %>
-                </div>
+
+                    <div class="collection">
+    <ul class="collapsible popout" data-collapsible="accordion">
+
+
+	<a href="#!" class="collection-item active">Directories User</a>
+
+		<li>
+	      <div class="collapsible-header"><i class="material-icons">person_pin</i>Staff
+	      
+	      </div>
+	      <div class="collapsible-body" style="overflow: scroll-y;height: 30px;">
+
+	      <% for(var i=0; i<directories.length; i++) { %>
+	      <% if (directories[i].usertype == "staff") { %>
+		                        
+		      <a href="/users/<%=directories[i].username%>" class="collection-item"> 
+		          <img class="small_avartar circle " src="<%= directories[i].image %>"/><%= directories[i].department %><%= directories[i].usertype %><br>
+		          <%= directories[i].firstname %>&nbsp;<%= directories[i].lastname %><br>&nbsp;<%= directories[i].email %>
+		      </a>
+
+		  <% }%>
+		  <% }%>
+	      </div>
+	    </li>
+
+    <li>
+
+      <div class="collapsible-header"><i class="material-icons">person_pin</i>Student
+      
+      </div>
+      <div class="collapsible-body" style="overflow: scroll-y;height: 30px;">
+
+      <% for(var i=0; i<directories.length; i++) { %>
+      <% if (directories[i].usertype == "student") { %>
+	                        
+	      <a href="/users/<%=directories[i].username%>" class="collection-item"> 
+	          <img class="small_avartar circle " src="<%= directories[i].image %>"/><%= directories[i].department %><%= directories[i].usertype %><br>
+	          <%= directories[i].firstname %>&nbsp;<%= directories[i].lastname %><br>&nbsp;<%= directories[i].email %>
+	      </a>
+
+	  <% }%>
+	  <% }%>
+      </div>
+    </li>
+
+	  <li>
+      <div class="collapsible-header"><i class="material-icons">person_pin</i>Alumni
+      
+      </div>
+      <div class="collapsible-body" style="overflow: scroll-y;height: 30px;">
+
+      <% for(var i=0; i<directories.length; i++) { %>
+      <% if (directories[i].usertype == "alumni") { %>
+	                        
+	      <a href="/users/<%=directories[i].username%>" class="collection-item"> 
+	          <img class="small_avartar circle " src="<%= directories[i].image %>"/><%= directories[i].department %><%= directories[i].usertype %><br>
+	          <%= directories[i].firstname %>&nbsp;<%= directories[i].lastname %><br>&nbsp;<%= directories[i].email %>
+	      </a>
+
+	  <% }%>
+	  <% }%>
+      </div>
+    </li>
+
+
+
+    <li>
+      <div class="collapsible-header"><i class="material-icons">person_pin</i>Undefined
+      
+      </div>
+      <div class="collapsible-body" style="overflow: scroll-y;height: 30px;">
+
+      <% for(var i=0; i<directories.length; i++) { %>
+      <% if (!directories[i].usertype) { %>
+	                        
+	      <a href="/users/<%=directories[i].username%>" class="collection-item"> 
+	          <img class="small_avartar circle " src="<%= directories[i].image %>"/><%= directories[i].department %><%= directories[i].usertype %><br>
+	          <%= directories[i].firstname %>&nbsp;<%= directories[i].lastname %><br>&nbsp;<%= directories[i].email %>
+	      </a>
+
+	  <% }%>
+	  <% }%>
+      </div>
+    </li>
+
+
+
+
+    </ul>
+
+    </div>
 
                 <!-- Profile About Details  -->
 <!--                 <ul id="profile-page-about-details" class="collection z-depth-1">

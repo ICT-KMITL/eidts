@@ -11,27 +11,28 @@ $(document).ready(function(){
     });
 
     $('.has-event').click(function(){
-  $(this).append("<div class='pulse'></div>")
-  .bind("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function(){
-    $('.pulse').remove();
-  });
- $(".event").addClass("active");
- $(".cal").removeClass("active");
-});
-$(".close").click(function(){
-  $(this).append("<div class='pulse dark'></div>")
-  .bind("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function(){
-    $('.pulse').remove();
-  });
-  $(".event").removeClass("active");
-  $(".cal").addClass("active");
-})
+          $(this).append("<div class='pulse'></div>")
+          .bind("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function(){
+            $('.pulse').remove();
+          });
+         $(".event").addClass("active");
+         $(".cal").removeClass("active");
+    });
+
+    $(".close").click(function(){
+          $(this).append("<div class='pulse dark'></div>")
+          .bind("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function(){
+            $('.pulse').remove();
+          });
+          $(".event").removeClass("active");
+          $(".cal").addClass("active");
+    });
 
 $('.parallax').parallax();
 
  $('#header-slide').slider({full_width: true,height: 650});
- $('#new-slide').slider({full_width: true,height: 290});
- $('#research-slide').slider({full_width: true,height: 290});
+ $('#new-slide').slider({full_width: true,height: 310});
+ $('#research-slide').slider({full_width: true,height: 300});
 
 
     $('.modal-trigger').leanModal();
@@ -461,5 +462,18 @@ $('.toggle').on('click', function() {
 $('.close').on('click', function() {
   $('.containerr').stop().removeClass('active');
 });
+
+function scrollHandler (e) {
+  var sTop = $(window).scrollTop()
+  var dh = $('.navbar').height()
+  if (sTop >= (dh - 64)) {
+    $('.nav-logo').addClass('active')
+    $('.nav-desktop').addClass('active')
+    $('body').addClass('active')
+    $(window).off('scroll', scrollHandler)
+  }
+}
+
+$(window).scroll(scrollHandler)
 
 

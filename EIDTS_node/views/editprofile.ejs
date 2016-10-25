@@ -43,15 +43,15 @@ if (user.username == currentUser.username) {
 
     <div id="FormSection" class="row" style="height:100%; padding-top:8.7rem">
         <!-- side nav section -->
-
-        <div class="container">
+        <!-- class="container" -->
+        <div >
                     <div id="work-collections">
                         <div class="row">
 
                         <form method="POST" action="/profile">
 
                             <div class="col s12 m6 l6">
-                                    <input class="btn-large" type="submit" value="Update">
+                                    
 
                                     <ul id="profile-collection" class="collection">
 
@@ -114,10 +114,10 @@ if (user.username == currentUser.username) {
                                                 <br>
 
                                             <select class = "browser-default" id="userType">
-                                                <option value="" disabled  selected>Who you are</option>
-                                                <option value="1">Academic Staff</option>
-                                                <option value="2">Student</option>
-                                                <option value="3">Alumni</option>
+                                            <option value="<%= user.usertype %>" selected><%= user.usertype %></option>
+                                                <option value="staff">staff</option>
+                                                <option value="student">student</option>
+                                                <option value="alumni">alumni</option>
                                             </select>
 
                                             </div>
@@ -234,70 +234,108 @@ if (user.username == currentUser.username) {
                                 </ul>
                             </div>
 
-                            </form>
-
-
-
+                        
                         <div class="col s12 m12 l6">
                                 <ul id="address-collection" class="collection">
                                     <li class="collection-item avatar">
                                         <div class="col s12 m4 l9">
                                             <i class="mdi-action-home circle green darken-2"></i>
-                                            <span class="collection-header">Address(Shared)</span>
+                                            <span class="collection-header">Address</span>
                                             <p>and More Information</p>
                                         </div>
 
                                     </li>
+                                    <% if (uad) { %>
                                     <li class="collection-item">
                                         <div class="row">
-
                                             <div class="input-field col s12">
                                                 <span class="fieldLabel">Address Line 1</span>
-                                                <input  id="AddressNo" type="text" >
+                                                <input placeholder="<%= uad.fline %>" name="fline" type="text" value="<%= uad.fline %>"/>
                                             </div>
-
-
                                         </div>
                                     </li>
                                     <li class="collection-item">
                                         <div class="row">
-
                                             <div class="input-field col s12">
                                                 <span class="fieldLabel">Address Line 2</span>
-                                                <input  id="AddressNo" type="text" >
+                                                <input placeholder="<%= uad.sline %>" name="sline" type="text" value="<%= uad.sline %>"/>
                                             </div>
-
-
                                         </div>
                                     </li>
                                     <li class="collection-item">
                                         <div class="row">
                                             <div class="input-field col s12 m4 l4">
                                                 <span class="fieldLabel">District</span>
-                                                <input placeholder="Wangthonglang" id="AddressDistrict" type="text" >
+                                                <input placeholder="<%= uad.district %>" name="district" type="text" value="<%= uad.district %>"/>
                                             </div>
 
                                             <div class="input-field col s12 m4 l4">
                                                 <span class="fieldLabel">Province</span>
-                                                <input placeholder="Bangkok" id="AddressCity" type="text" >
+                                                <input placeholder="<%= uad.province %>" name="province" type="text" value="<%= uad.province %>"/>
                                             </div>
                                             <div class="input-field col s12 m4 l4">
                                                 <span class="fieldLabel">Postcode</span>
-                                                <input placeholder="10900" id="AddressProvince" type="text" >
+                                                <input placeholder="<%= uad.postcode %>" name="postcode" type="text" value="<%= uad.postcode %>"/>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                     <% } else { %>
+
+
+                                     <li class="collection-item">
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <span class="fieldLabel">Address Line 1</span>
+                                                <input name="fline" type="text" />
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="collection-item">
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <span class="fieldLabel">Address Line 2</span>
+                                                <input name="sline" type="text" />
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="collection-item">
+                                        <div class="row">
+                                            <div class="input-field col s12 m4 l4">
+                                                <span class="fieldLabel">District</span>
+                                                <input name="district" type="text" />
+                                            </div>
+
+                                            <div class="input-field col s12 m4 l4">
+                                                <span class="fieldLabel">Province</span>
+                                                <input name="province" type="text" />
+                                            </div>
+                                            <div class="input-field col s12 m4 l4">
+                                                <span class="fieldLabel">Postcode</span>
+                                                <input name="postcode" type="text" />
                                             </div>
                                         </div>
                                     </li>
 
 
+									
+									<% } %>
+
+
+
 
                                 </ul>
                         </div>
+
+
+                       
+
                         <div class="col s12 m12 l6">
                                 <ul id="expertise-collection" class="collection">
                                     <li class="collection-item avatar">
 
                                         <i class="mdi-image-tune circle teal"></i>
-                                       <span class="collection-header">Expertise and Research Interests(Shared)</span>
+                                       <span class="collection-header">Expertise and Research Interests</span>
                                         <p>Area of your interests</p>
 
                                     </li>
@@ -334,12 +372,13 @@ if (user.username == currentUser.username) {
 
                                 </ul>
                         </div>
+ <!--                       
                         <div class="col s12 m12 l6">
                             <ul id="projects-collection" class="collection">
                                     <li class="collection-item avatar">
                                         <div class="col s12 m4 l9">
                                             <i class="mdi-action-wallet-travel circle pink darken-2"></i>
-                                            <span class="collection-header">Working Experiences (Shared)</span>
+                                            <span class="collection-header">Working Experiences </span>
                                             <p>and career information</p>
                                         </div>
                                         <div class="col l3">
@@ -449,9 +488,18 @@ if (user.username == currentUser.username) {
 
 
                                 </ul>
-                        </div>
+                        </div> -->
+                        
                         
 
+                        <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+
+					    <input class="btn-large green" type="submit" value="Update"></input>
+
+					  </div>
+
+
+                         </form>
                         </div>
                     </div>
 

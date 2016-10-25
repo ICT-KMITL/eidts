@@ -91,6 +91,17 @@ var Education_Background= mongoose.model('Education_Background',{
     graduation_Year:Number,
 
 });
+
+
+var User_address= mongoose.model('user_addresses',{
+    username: String,
+    fline:String,
+    sline:String,
+    district:String,
+    province:String,
+    postcode:String,
+})
+
 //lecturer Research_interest model
 var Research_interest= mongoose.model('Research_interest',{
     username: String,
@@ -253,7 +264,7 @@ app.post('/signup', function (req, res){
 					password: password,
 					email:'email',
 					image: '/img/profile.jpg', //default image
-					bio: 'Hi Loop!',
+					bio: 'Hi EIDTS!',
 					telno: 'telno',
 					title: 'title',
 					firstname: 'firstname',
@@ -305,14 +316,16 @@ app.get('/users/:username', function (req, res) {
 
 					Education_Background.find(query).sort({graduation_Year: 1}).execFind(function(err, edu){
 
-						res.render('profile.ejs', {
-							edu:edu,
-							user: user, 
-							currentUser: currentUser,
-							// statuses: statuses, 
-						});
+						User_address.findOne(query, function (err, ud) {
+							res.render('profile.ejs', {
+								uad:ud,
+								edu:edu,
+								user: user, 
+								currentUser: currentUser,
+							});
 						// console.log("user",user);
 						// console.log("Education_Background"+edu);
+						});
 
 					});
 				// });
@@ -347,12 +360,15 @@ app.get('/editusers/:username', function (req, res) {
 				// 		});
 				// });
 				Education_Background.find(query).sort({graduation_Year: 1}).execFind(function(err, edu){
+					User_address.findOne(query, function (err, ud) {
 						res.render('editprofile.ejs', {
+							uad:ud,
 							user: user, 
 							currentUser: currentUser,
 							edu:edu
 						});
 					});	
+				});	
 			}
 		});
 	} else {
@@ -394,24 +410,9 @@ app.post('/profile', function (req, res) {
 			});
 
 		});
-		// console.log("req.body",req.body);
-
-		// console.log("req.body.user_edu_inst_name",req.body.user_edu_inst_name.length);
-		// console.log("req.body.user_edu_program",req.body.user_edu_program.length);
-		// console.log("req.body.user_edu_degree",req.body.user_edu_degree.length);
-		// console.log("req.body.user_edu_grad_year",req.body.user_edu_grad_year.length);
 
 		if(req.body.user_edu_inst_name){
 			
-
-				// console.log("user_edu_id",user_edu_id);
-				// console.log("user_edu_inst_name",user_edu_inst_name);
-				// console.log("user_edu_program",user_edu_program);
-				// console.log("user_edu_degree",user_edu_degree);
-				// console.log("user_edu_grad_year",user_edu_grad_year);
-
-				// {'_id': ObjectId(user_edu_id)}
-				// console.log(req.body.user_edu_id,req.body.user_edu_id.length)
 				for (i = 0; i < req.body.user_edu_inst_name.length; i++) {
 
 					user_edu_id=req.body.user_edu_id[i]
@@ -444,57 +445,45 @@ app.post('/profile', function (req, res) {
 							console.log(username+' has added their edu'+user_edu_inst_name);
 						});
 					}
-
 				}
+		}
+
+		if(req.body.fline){
+
+			User_address.findOne(query_username, function (err, user) {
+			if (user) {
+				var change_user_address={
+			    fline:req.body.fline,
+			    sline:req.body.sline,
+			    district:req.body.district,
+			    province:req.body.province,
+			    postcode:req.body.postcode,
+			}
+			
+			User_address.update(query_username, change_user_address, function (err, user) {
+
+					console.log(username+' has updated their user_address');
 
 
-				// Education_Background.find(query_username,function (err, edu) {
-				// 		// console.log(edu)
-				// 		if (edu) {
-				// 			for (var x = 0; x < edu.length; x++) {
-				// 				for (var y = 0; y < req.body.user_edu_inst_name.length; y++) {
-				// 					user_edu_id=req.body.user_edu_id[y]
-				// 					user_edu_degree=req.body.user_edu_degree[y]
-				// 					user_edu_program=req.body.user_edu_program[y]
-				// 					user_edu_inst_name=req.body.user_edu_inst_name[y]
-				// 					user_edu_grad_year=req.body.user_edu_grad_year[y]
+			});
 
-				// 					if(edu[x].degree!=user_edu_degree || edu[x].program!=user_edu_program || edu[x].insititute_name!=user_edu_inst_name || edu[x].graduation_Year!=user_edu_grad_year )
-				// 					{
-				// 						console.log(edu[x].degree)
-				// 						console.log(edu[x].program)
-				// 						console.log(edu[x].insititute_name)
-				// 						console.log(edu[x].graduation_Year)
-				// 						var change_edu = {
-				// 							insititute_name:user_edu_inst_name,
-				// 							program:user_edu_program,
-				// 						    degree:user_edu_degree,
-				// 						    graduation_Year:user_edu_grad_year,
-				// 						};
-				// 						Education_Background.update( {'_id': ObjectId(user_edu_id)} , change_edu, function (err, user) {
-				// 							console.log(username+' has updated their edu '+user_edu_inst_name);
-				// 						});
+			} else {
 
-				// 					}
+				var change_user_address={
+					username: username,
+				    fline:req.body.fline,
+				    sline:req.body.sline,
+				    district:req.body.district,
+				    province:req.body.province,
+				    postcode:req.body.postcode,
+				}
+				User_address(change_user_address).save(function (err){
 
+						console.log(username+' has created their user_address');
 
-				// 			}
-				// 		}
-				// 	}
-
-				// 		// } else {
-				// 		// 	var new_edu = {
-				// 		// 		insititute_name:user_edu_inst_name,
-				// 		// 		program:req.user_edu_program,
-				// 		// 	    degree:user_edu_degree,
-				// 		// 	    graduation_Year:user_edu_grad_year,
-				// 		// 	};
-
-				// 		// 	Education_Background(new_edu).save(function (err){
-				// 		// 		console.log(username+' has added their edu'+user_edu_inst_name);
-				// 		// 	});
-				// 		// }
-				// });
+				});
+			}
+		});
 
 
 		}
